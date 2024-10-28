@@ -36,7 +36,7 @@ const Login = () => {
                     localStorage.setItem("id", login_data.data.data.id);
                     localStorage.setItem("Role", login_data.data.data.Role);
                     localStorage.setItem("FullName", login_data.data.data.FullName);
-                    navigate("/admin/dashboard");
+                    navigate("/client/dashboard");
                 });
             } else {
                 Swal.fire({
@@ -145,9 +145,7 @@ const Login = () => {
                                                     </div>
                                                 </div>
                                                 <div className="col-md-6 text-end">
-                                                    {/* <p onClick={() => navigate("/forgetpass")}>
-                                                        Forgot Password?
-                                                    </p> */}
+                                        
                                                     <p className="mb-0">
 
                                                         <Link to="/forget">Forgot Password?</Link>
@@ -161,20 +159,12 @@ const Login = () => {
                                                         </button>
                                                     </div>
                                                 </div>
-                                                {/* <div className="col-12">
-                                                    <div className="text-center ">
-                                                        <p className="mb-0">
-                                                            Don't have an account yet?{" "}
-                                                            <Link to="/register">Sign up here</Link>
-                                                        </p>
-                                                    </div>
-                                                </div> */}
+                                                
                                             </form>
                                             {error && <div className="alert alert-danger mt-3">{error}</div>}
                                         </div>
                                         <div className="login-separater text-center mb-5">
-                                            {/* <span>OR SIGN IN WITH</span> */}
-                                            {/* <hr /> */}
+                                    
                                         </div>
 
                                     </div>

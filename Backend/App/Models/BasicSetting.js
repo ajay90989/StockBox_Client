@@ -132,7 +132,7 @@ const BasicSettingSchema = new Schema({
         default: null
     },
     freetrial: {
-        type: String,
+        type: Number,
         trim: true,
         default: 0
     }

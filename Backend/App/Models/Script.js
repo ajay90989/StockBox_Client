@@ -54,8 +54,8 @@ const scriptModel = Schema({
         default: null
     },
     del: {
-        type: String,
-        enum: ['1', '0'],
+        type: Number,
+        enum: [1, 0],
         default: 0
     }
   

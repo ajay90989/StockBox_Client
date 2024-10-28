@@ -29,7 +29,7 @@ const OrderModel = Schema({
         default: 0
     },
     status: {
-        type: String,
+        type: Number,
         enum: [0, 1], // Example statuses
         default: 0
     },

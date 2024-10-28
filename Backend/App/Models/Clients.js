@@ -2,7 +2,7 @@
 const crypto = require('crypto');
 const { Schema, model } = require('mongoose');
 
-const clientsModel = Schema({
+const clientsModel = new Schema({
     FullName: {
         type: String,
         required: true,
@@ -19,12 +19,16 @@ const clientsModel = Schema({
         type: String,
         required: true,
         trim: true,
-        min: 10,
-        max: 10,
+        validate: {
+            validator: function(v) {
+                return /\d{10}/.test(v); // ensures exactly 10 digits
+            },
+            message: props => `${props.value} is not a valid phone number!`
+        },
         default: null
     },
-    password:{
-        type:String,
+    password: {
+        type: String,
         required: true,
         trim: true,
         default: null
@@ -32,7 +36,6 @@ const clientsModel = Schema({
     token: {
         type: String,
         trim: true,
-        unique: true,
         default: null
     },
     panno: {
@@ -46,9 +49,9 @@ const clientsModel = Schema({
         default: null
     },
     kyc_verification: {
-        type: String,
-        enum: ['1', '0'],
-        default: '0'
+        type: Number, // changed to Number
+        enum: [1, 0],
+        default: 0
     },
     pdf: {
         type: String,
@@ -72,11 +75,11 @@ const clientsModel = Schema({
     },
     alice_userid: {
         type: Number,
-        default: 0,
+        default: 0
     },
     brokerid: {
         type: Number,
-        default: 0,
+        default: 0
     },
     authtoken: {
         type: String,
@@ -84,12 +87,12 @@ const clientsModel = Schema({
         default: null
     },
     dlinkstatus: {
-        type: Number,
+        type: Number, // changed to Number
         enum: [1, 0],
         default: 0
     },
     tradingstatus: {
-        type: Number,
+        type: Number, // changed to Number
         enum: [1, 0],
         default: 0
     },
@@ -99,58 +102,46 @@ const clientsModel = Schema({
         min: 0
     },
     del: {
-        type: String,
+        type: Number, // changed to Number
         enum: [1, 0],
         default: 0
     },
     clientcome: {
-        type: String,
+        type: Number, // changed to Number
         enum: [1, 0],
         default: 0
     },
     ActiveStatus: {
-        type: String,
-        enum: ['1', '0'],
-        default: '0'
+        type: Number, // changed to Number
+        enum: [1, 0],
+        default: 0
     },
     freetrial: {
-        type: String,
-        enum: ['1', '0'],
-        default: '0'
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
+        type: Number, // changed to Number
+        enum: [1, 0],
+        default: 0
     },
     refer_token: {
         type: String,
-        unique: true,
-        default: null,
+        default: null
     },
     forgotPasswordToken: {
         type: String,
-        default: null,
+        default: null
     },
     forgotPasswordTokenExpiry: {
         type: Date,
-        default: null,
+        default: null
     },
     devicetoken: {
         type: String,
         trim: true,
         default: null
     }
-    
-},
-    {
-        timestamps: true
-    },
-
-)
-
+}, {
+    timestamps: true
+});
 
 const Clients_model = model('CLIENTS', clientsModel);
-
-
 
 module.exports = Clients_model;

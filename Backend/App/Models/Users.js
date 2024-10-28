@@ -39,7 +39,7 @@ const userModel = Schema({
         default: null
     },
     Role: {
-        type: String,
+        type: Number,
         default: 2
     },  
     add_by: {
@@ -49,14 +49,14 @@ const userModel = Schema({
     },
     permissions: [{ type: String }],
     del: {
-        type: String,
-        enum: ['1', '0'],
+        type: Number,
+        enum: [1, 0],
         default: 0
     },
     ActiveStatus: {
-        type: String,
-        enum: ['1', '0'],
-        default: '0'
+        type: Number,
+        enum: [1, 0],
+        default: 0
     },
     createdAt: {
         type: Date,
