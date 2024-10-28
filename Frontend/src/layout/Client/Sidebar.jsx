@@ -49,7 +49,7 @@ const Sidebar = ({ onToggleClick }) => {
 
 
                     <li>
-                      <Link to={'/staff/client'}>
+                      <Link to={'/client/client'}>
                         <div className="parent-icon">
                           <i className="bx bx-user" />
                         </div>
@@ -68,7 +68,7 @@ const Sidebar = ({ onToggleClick }) => {
                       </Link>
                     </li> */}
 
-                    <li>
+                    {/* <li>
                       <Link to="/staff/signal">
                         <div className="parent-icon">
                           <i className="bx bx-wifi-2" />
@@ -76,7 +76,7 @@ const Sidebar = ({ onToggleClick }) => {
                         <div className="menu-title">Signal
                         </div>
                       </Link>
-                    </li>
+                    </li> */}
 
                     {/* <li>
                       <Link to="/staff/basket">
