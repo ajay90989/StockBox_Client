@@ -59,7 +59,7 @@ const Dashboard = () => {
                             <div className="card-body">
                                 <div className="d-flex align-items-center">
                                     <div>
-                                        <p className="mb-0 text-secondary">Total Customers</p>
+                                        <p className="mb-0 text-secondary">Cash+Future</p>
                                         <h4 className="my-1">8.4K</h4>
                                         <p className="mb-0 font-13 text-danger">
                                             <i className="bx bxs-down-arrow align-middle" />
