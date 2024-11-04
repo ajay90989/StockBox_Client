@@ -1,557 +1,279 @@
-import React, { useEffect, useState } from 'react'
-import { getDashboarddetail } from '../../../Services/Admin'
-import { GetClient } from '../../../Services/Admin';
-import { fDateTime } from '../../../Utils/Date_formate';
-import Table from '../../../components/Table';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import Chart from 'react-apexcharts';
 
-
-const Dashbord = () => {
-
-    const token = localStorage.getItem('token');
-
-    const [data, setData] = useState([])
-    const [clients, setClients] = useState([]);
-
-
-    const getdetail = async () => {
-        try {
-            const response = await getDashboarddetail(token);
-            if (response.status) {
-
-                setData(response.data)
-            }
-        } catch (error) {
-            console.log("Error fetching services:", error);
-        }
+const Dashboard = () => {
+    const [activeTab, setActiveTab] = useState("Cash");
+    const chartOptions = {
+        chart: {
+            id: 'performance-chart',
+            type: 'line',
+        },
+        xaxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+        },
+        stroke: {
+            curve: 'smooth',
+        },
+        markers: {
+            size: 5,
+        },
+        colors: ['#008FFB'],
     };
 
-
-
-    const getAdminclient = async () => {
-        try {
-            const response = await GetClient(token);
-            if (response.status) {
-                const topClients = response.data.slice(0, 5);
-                setClients(topClients);
-            }
-        } catch (error) {
-            console.log("error");
-        }
-    }
-
-    useEffect(() => {
-        getdetail()
-        getAdminclient()
-    }, [])
-
-
-
-    const columns = [
+    const chartSeries = [
         {
-            name: 'S.No',
-            selector: (row, index) => index + 1,
-            sortable: false,
-            width: '100px',
+            name: 'Performance',
+            data: activeTab === "Cash" ? [10, 41, 35, 51, 49, 62, 69, 91, 148]
+                : activeTab === "Future" ? [30, 70, 35, 80, 59, 95, 70, 115, 200]
+                    : [15, 40, 20, 30, 45, 60, 65, 80, 100], // Sample data for each tab
         },
-        {
-            name: 'Full Name',
-            selector: row => row.FullName,
-            sortable: true,
-            width: '180px',
-        },
-        {
-            name: 'Email',
-            selector: row => row.Email,
-            sortable: true,
-            width: '284px',
-
-        },
-        {
-            name: 'Phone No',
-            selector: row => row.PhoneNo,
-            sortable: true,
-            width: '200px',
-        },
-
-
-        // {
-        //     name: 'Signup Status',
-        //     selector: row => row.Status,
-        //     sortable: true,
-        //     width: '165px',
-        // },
-        // {
-        // name: 'Date',
-        // selector: row => row.Status,
-        // sortable: true,
-        // width: '165px',
-        // },
-
-        // {
-        //     name: 'Active Status',
-        //     selector: row => (
-        //         <div className="form-check form-switch form-check-info">
-        //             <input
-        //                 id={`rating_${row.ActiveStatus}`}
-        //                 className="form-check-input toggleswitch"
-        //                 type="checkbox"
-        //                 defaultChecked={row.ActiveStatus == 1}
-        //                 onChange={(event) => handleSwitchChange(event, row._id)}
-        //             />
-        //             <label
-        //                 htmlFor={`rating_${row.ActiveStatus}`}
-        //                 className="checktoggle checkbox-bg"
-        //             ></label>
-        //         </div>
-        //     ),
-        //     sortable: true,
-        //     width: '165px',
-        // },
-        {
-            name: 'CreatedAt',
-            selector: row => fDateTime(row.createdAt),
-            sortable: true,
-
-        },
-        // {
-        //     name: 'Actions',
-        //     selector: (row) => (
-        //         <>
-        //             <Tooltip placement="top" overlay="Package Assign">
-        //                 <span onClick={(e) => { showModal(true); setClientid(row); }} style={{ cursor: 'pointer' }}>
-        //                     <Settings2 />
-        //                 </span>
-        //             </Tooltip>
-
-        //             <Tooltip title="view">
-        //                 <Eye
-
-        //                     onClick={() => Clientdetail(row)} />
-        //             </Tooltip>
-
-        //             <div
-        //                 className="modal fade"
-        //                 id={`modal-${client.id}`}
-        //                 tabIndex={-1}
-        //                 aria-labelledby={`modalLabel-${client.id}`}
-        //                 aria-hidden="true"
-        //             >
-        //                 <div className="modal-dialog">
-        //                     <div className="modal-content">
-        //                         <div className="modal-header">
-        //                             <h5 className="modal-title" id={`modalLabel-${client.id}`}>
-        //                                 View Client
-        //                             </h5>
-        //                             <button
-        //                                 type="button"
-        //                                 className="btn-close"
-        //                                 data-bs-dismiss="modal"
-        //                                 aria-label="Close"
-        //                             />
-        //                         </div>
-        //                         <div className="modal-body">
-        //                             <ul>
-        //                                 <li className='viewlist'>
-        //                                     <div className='row justify-content-between'>
-        //                                         <div className="col">
-        //                                             <b>Name</b>
-        //                                         </div>
-        //                                         <div className="col">
-        //                                             Pankaj
-        //                                         </div>
-
-        //                                     </div>
-        //                                 </li>
-        //                                 <li className='viewlist'> <div className='row justify-content-between'>
-        //                                     <div className="col">
-        //                                         <b>Email</b>
-        //                                     </div>
-        //                                     <div className="col">
-        //                                         pankaj@gmail.com
-        //                                     </div>
-
-        //                                 </div></li>
-        //                                 <li className='viewlist'> <div className='row justify-content-between'>
-        //                                     <div className="col">
-        //                                         <b>Phone No.</b>
-        //                                     </div>
-        //                                     <div className="col">
-        //                                         9876543210
-        //                                     </div>
-
-        //                                 </div></li>
-        //                                 <li className='viewlist'> <div className='row justify-content-between'>
-        //                                     <div className="col">
-        //                                         <b>Signup Status</b>
-        //                                     </div>
-        //                                     <div className="col">
-        //                                         App
-        //                                     </div>
-
-        //                                 </div></li>
-        //                                 <li className='viewlist'> <div className='row justify-content-between'>
-        //                                     <div className="col">
-        //                                         <b>Created At</b>
-        //                                     </div>
-        //                                     <div className="col">
-        //                                         25/09/2024
-        //                                     </div>
-
-        //                                 </div></li>
-        //                                 <li className='viewlist'> <div className='row justify-content-between'>
-        //                                     <div className="col">
-        //                                         <b>Updated At</b>
-        //                                     </div>
-        //                                     <div className="col">
-        //                                         26/09/2024
-        //                                     </div>
-
-        //                                 </div></li>
-        //                             </ul>
-        //                         </div>
-        //                         {/* <div className="modal-footer">
-        //                             <button
-        //                                 type="button"
-        //                                 className="btn btn-secondary"
-        //                                 data-bs-dismiss="modal"
-        //                             >
-        //                                 Close
-        //                             </button>
-        //                         </div> */}
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //             <Tooltip title="Update">
-        //                 <UserPen onClick={() => updateClient(row)} />
-        //             </Tooltip>
-        //             <Tooltip title="delete">
-        //                 <Trash2 onClick={() => DeleteClient(row._id)} />
-        //             </Tooltip>
-        //         </>
-        //     ),
-        //     ignoreRowClick: true,
-        //     allowOverflow: true,
-        //     button: true,
-        //     width: '165px',
-        // }
     ];
-
-
-
     return (
         <div>
-
             <div className="page-content">
+                <h6 className="mb-0 text-uppercase">Plans</h6>
+                <hr />
+
                 <div className="row">
                     <div className="col-md-3">
-                        <div className="card radius-10 bg-gradient-deepblue">
+                        <div className="card radius-10">
                             <div className="card-body">
                                 <div className="d-flex align-items-center">
-                                    <h5 className="mb-0 text-white">{data.clientCountTotal && data.clientCountTotal}</h5>
-                                    <div className="ms-auto">
-                                        <i className="bx bx-user fs-3 text-white" />
+                                    <div>
+                                        <p className="mb-0 text-secondary">Cash+Future+option</p>
+                                        <h4 className="my-1">2 Months</h4>
+                                        <p className="mb-0 font-13 text-success">
+                                            <i className="bx bxs-up-arrow align-middle" />
+                                            $34 from last week
+                                        </p>
                                     </div>
-                                </div>
-                                <div
-                                    className="progress my-2 bg-opacity-25 bg-white"
-                                    style={{ height: 4 }}
-                                >
-                                    <div
-                                        className="progress-bar bg-white"
-                                        role="progressbar"
-                                        style={{ width: "55%" }}
-                                        aria-valuenow={25}
-                                        aria-valuemin={0}
-                                        aria-valuemax={100}
-                                    />
-                                </div>
-                                <div className="d-flex align-items-center text-white">
-                                    <p className="mb-0">Total Clients</p>
-
-                                    <p className="mb-0 ms-auto">
-
-                                        <span>
-                                            <Link to="/admin/client"><i className="bx bx-up-arrow-alt text-white" /> </Link>
-                                        </span>
-
-                                    </p>
-
+                                    <div className="widgets-icons rounded-circle text-white ms-auto bg-gradient-burning">
+                                        <i className="bx bxs-wallet" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-md-3">
-                        <div className="card radius-10 bg-gradient-ohhappiness">
+                        <div className="card radius-10">
                             <div className="card-body">
                                 <div className="d-flex align-items-center">
-                                    <h5 className="mb-0 text-white">{data.clientCountActive && data.clientCountActive}</h5>
-                                    <div className="ms-auto">
-                                        <i className="fadeIn animated bx bx-user-circle fs-3 text-white" />
+                                    <div>
+                                        <p className="mb-0 text-secondary">Total Customers</p>
+                                        <h4 className="my-1">8.4K</h4>
+                                        <p className="mb-0 font-13 text-danger">
+                                            <i className="bx bxs-down-arrow align-middle" />
+                                            $24 from last week
+                                        </p>
                                     </div>
-                                </div>
-                                <div
-                                    className="progress my-2 bg-opacity-25 bg-white"
-                                    style={{ height: 4 }}
-                                >
-                                    <div
-                                        className="progress-bar bg-white"
-                                        role="progressbar"
-                                        style={{ width: "55%" }}
-                                        aria-valuenow={25}
-                                        aria-valuemin={0}
-                                        aria-valuemax={100}
-                                    />
-                                </div>
-                                <div className="d-flex align-items-center text-white">
-                                    <p className="mb-0">Total Active Client</p>
-                                    <p className="mb-0 ms-auto">
-
-                                        <span>
-                                            <Link to="/admin/client"><i className="bx bx-up-arrow-alt text-white" /></Link>
-                                            {/* <i className="bx bx-up-arrow-alt" /> */}
-                                        </span>
-                                    </p>
+                                    <div className="widgets-icons rounded-circle text-white ms-auto bg-gradient-voilet">
+                                        <i className="bx bxs-group" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-md-3">
-                        <div className="card radius-10 bg-gradient-ibiza">
+                        <div className="card radius-10">
                             <div className="card-body">
                                 <div className="d-flex align-items-center">
-                                    <h5 className="mb-0 text-white">{data.clientCountTotal - data.clientCountActive}</h5>
-                                    <div className="ms-auto">
-                                        <i className="fadeIn animated bx bx-user-x fs-3 text-white" />
+                                    <div>
+                                        <p className="mb-0 text-secondary">Store Visitors</p>
+                                        <h4 className="my-1">59K</h4>
+                                        <p className="mb-0 font-13 text-success">
+                                            <i className="bx bxs-up-arrow align-middle" />
+                                            $34 from last week
+                                        </p>
                                     </div>
-                                </div>
-                                <div
-                                    className="progress my-2 bg-opacity-25 bg-white"
-                                    style={{ height: 4 }}
-                                >
-                                    <div
-                                        className="progress-bar bg-white"
-                                        role="progressbar"
-                                        style={{ width: "55%" }}
-                                        aria-valuenow={25}
-                                        aria-valuemin={0}
-                                        aria-valuemax={100}
-                                    />
-                                </div>
-                                <div className="d-flex align-items-center text-white">
-                                    <p className="mb-0">Total Deactive Client</p>
-                                    <p className="mb-0 ms-auto">
-
-                                        <span>
-                                            <Link to="/admin/client"><i className="bx bx-up-arrow-alt text-white" /></Link>
-                                            {/* <i className="bx bx-up-arrow-alt" /> */}
-                                        </span>
-                                    </p>
+                                    <div className="widgets-icons rounded-circle text-white ms-auto bg-gradient-branding">
+                                        <i className="bx bxs-binoculars" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-md-3">
-                        <div className="card radius-10 bg-gradient-moonlit">
+                        <div className="card radius-10">
                             <div className="card-body">
                                 <div className="d-flex align-items-center">
-                                    <h5 className="mb-0 text-white">{data.userCountTotal && data.userCountTotal}</h5>
-                                    <div className="ms-auto">
-                                        <i className="bx bx-user-plus fs-3 text-white" />
+                                    <div>
+                                        <p className="mb-0 text-secondary">Bounce Rate</p>
+                                        <h4 className="my-1">34.46%</h4>
+                                        <p className="mb-0 font-13 text-danger">
+                                            <i className="bx bxs-down-arrow align-middle" />
+                                            12.2% from last week
+                                        </p>
                                     </div>
-                                </div>
-                                <div
-                                    className="progress my-2 bg-opacity-25 bg-white"
-                                    style={{ height: 4 }}
-                                >
-                                    <div
-                                        className="progress-bar bg-white"
-                                        role="progressbar"
-                                        style={{ width: "55%" }}
-                                        aria-valuenow={25}
-                                        aria-valuemin={0}
-                                        aria-valuemax={100}
-                                    />
-                                </div>
-                                <div className="d-flex align-items-center text-white">
-                                    <p className="mb-0">Total Staff</p>
-                                    <p className="mb-0 ms-auto">
-
-                                        <span>
-                                            <Link to="/admin/staff"><i className="bx bx-up-arrow-alt text-white" /></Link>
-                                            {/* <i className="bx bx-up-arrow-alt" /> */}
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-3">
-                        <div className="card radius-10 bg-gradient-moonlit ">
-                            <div className="card-body">
-                                <div className="d-flex align-items-center">
-                                    <h5 className="mb-0 text-white">{data.todayOpenSignal && data.todayOpenSignal}</h5>
-                                    <div className="ms-auto">
-                                        <i className="bx bx-wifi-2 fs-3 text-white" />
+                                    <div className="widgets-icons rounded-circle text-white ms-auto bg-gradient-kyoto">
+                                        <i className="bx bx-line-chart-down" />
                                     </div>
-                                </div>
-                                <div
-                                    className="progress my-2 bg-opacity-25 bg-white"
-                                    style={{ height: 4 }}
-                                >
-                                    <div
-                                        className="progress-bar bg-white"
-                                        role="progressbar"
-                                        style={{ width: "55%" }}
-                                        aria-valuenow={25}
-                                        aria-valuemin={0}
-                                        aria-valuemax={100}
-                                    />
-                                </div>
-                                <div className="d-flex align-items-center text-white">
-                                    <p className="mb-0">Todays Open Signal</p>
-                                    <p className="mb-0 ms-auto">
-
-                                        <span>
-                                            <Link to="/admin/signal"><i className="bx bx-up-arrow-alt text-white" /></Link>
-                                            {/* <i className="bx bx-up-arrow-alt" /> */}
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-3">
-                        <div className="card radius-10 bg-gradient-ibiza ">
-                            <div className="card-body">
-                                <div className="d-flex align-items-center">
-                                    <h5 className="mb-0 text-white">{data.todayCloseSignal && data.todayCloseSignal}</h5>
-                                    <div className="ms-auto">
-                                        <i className="fadeIn animated bx bx-wifi-off fs-3 text-white" />
-                                    </div>
-                                </div>
-                                <div
-                                    className="progress my-2 bg-opacity-25 bg-white"
-                                    style={{ height: 4 }}
-                                >
-                                    <div
-                                        className="progress-bar bg-white"
-                                        role="progressbar"
-                                        style={{ width: "55%" }}
-                                        aria-valuenow={25}
-                                        aria-valuemin={0}
-                                        aria-valuemax={100}
-                                    />
-                                </div>
-                                <div className="d-flex align-items-center text-white">
-                                    <p className="mb-0">Todays Close Signal</p>
-                                    <p className="mb-0 ms-auto">
-
-                                        <span>
-                                            <Link to="/admin/closesignal"><i className="bx bx-up-arrow-alt text-white" /></Link>
-                                            {/* <i className="bx bx-up-arrow-alt" /> */}
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col-md-3">
-                        <div className="card radius-10 bg-gradient-ohhappiness">
-                            <div className="card-body">
-                                <div className="d-flex align-items-center">
-                                    <h5 className="mb-0 text-white">{data.OpensignalCountTotal && data.OpensignalCountTotal}</h5>
-                                    <div className="ms-auto">
-                                        <i className="bx bxl-redux fs-3 text-white" />
-                                    </div>
-                                </div>
-                                <div
-                                    className="progress my-2 bg-opacity-25 bg-white"
-                                    style={{ height: 4 }}
-                                >
-                                    <div
-                                        className="progress-bar bg-white"
-                                        role="progressbar"
-                                        style={{ width: "55%" }}
-                                        aria-valuenow={25}
-                                        aria-valuemin={0}
-                                        aria-valuemax={100}
-                                    />
-                                </div>
-                                <div className="d-flex align-items-center text-white">
-                                    <p className="mb-0">Total Open Signal</p>
-                                    <p className="mb-0 ms-auto">
-
-                                        <span>
-                                            <Link to="/admin/signal"><i className="bx bx-up-arrow-alt text-white" /></Link>
-                                            {/* <i className="bx bx-up-arrow-alt" /> */}
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-3">
-                        <div className="card radius-10 bg-gradient-deepblue">
-                            <div className="card-body">
-                                <div className="d-flex align-items-center">
-                                    <h5 className="mb-0 text-white">{data.CloseSignalCountTotal && data.CloseSignalCountTotal}</h5>
-                                    <div className="ms-auto">
-                                        <i className="bx bx-wifi-2 fs-3 text-white" />
-                                    </div>
-                                </div>
-                                <div
-                                    className="progress my-2 bg-opacity-25 bg-white"
-                                    style={{ height: 4 }}
-                                >
-                                    <div
-                                        className="progress-bar bg-white"
-                                        role="progressbar"
-                                        style={{ width: "55%" }}
-                                        aria-valuenow={25}
-                                        aria-valuemin={0}
-                                        aria-valuemax={100}
-                                    />
-                                </div>
-                                <div className="d-flex align-items-center text-white">
-                                    <p className="mb-0">Total Close Signal </p>
-                                    <p className="mb-0 ms-auto">
-
-                                        <span>
-                                            <Link to="/admin/closesignal"><i className="bx bx-up-arrow-alt text-white" /></Link>
-                                            {/* <i className="bx bx-up-arrow-alt" /> */}
-                                        </span>
-                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="card radius-10">
-                    <div className="card-body">
-                        <div className="d-flex align-items-center">
-                            <div>
-                                <h5 className="mb-0">Recent Clients</h5>
+                {/*end row*/}
+                <div className="row">
+                    <div className="col-12 col-lg-8 col-xl-8 d-flex">
+                        <div className="card radius-10 w-100">
+                            <div className="card-body">
+                                <div className="d-flex align-items-center mb-3">
+                                    <h5 className="mb-0">Past Performance</h5>
+                                    <div className="options ms-auto">
+                                        <ul className="nav nav-tabs">
+                                            <li className="nav-item">
+                                                <button
+                                                    className={`nav-link ${activeTab === "Cash" ? "active" : ""}`}
+                                                    onClick={() => setActiveTab("Cash")}
+                                                >
+                                                    Cash
+                                                </button>
+                                            </li>
+                                            <li className="nav-item">
+                                                <button
+                                                    className={`nav-link ${activeTab === "Future" ? "active" : ""}`}
+                                                    onClick={() => setActiveTab("Future")}
+                                                >
+                                                    Future
+                                                </button>
+                                            </li>
+                                            <li className="nav-item">
+                                                <button
+                                                    className={`nav-link ${activeTab === "Option" ? "active" : ""}`}
+                                                    onClick={() => setActiveTab("Option")}
+                                                >
+                                                    Option
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div className="hstack flex-wrap align-items-center justify-content-between gap-3 gap-sm-4 mb-3 border p-3 radius-10">
+                                    {activeTab === "Cash" && (
+                                        <div>
+                                            <div>
+                                                <h5 className="mb-0">
+                                                    974{" "}
+                                                    <span className="text-success font-13">
+                                                        56% <i className="bx bx-up-arrow-alt" />
+                                                    </span>
+                                                </h5>
+                                                <p className="mb-0">Avg.return/Month</p>
+                                            </div>
+                                        </div>
+
+
+                                    )}
+                                    {activeTab === "Future" && (
+                                        <div>
+                                            <h5 className="mb-0">
+                                                1,218{" "}
+                                                <span className="text-danger font-13">
+                                                    34% <i className="bx bx-down-arrow-alt" />
+                                                </span>
+                                            </h5>
+                                            <p className="mb-0">Total Sales</p>
+                                        </div>
+                                    )}
+                                    {activeTab === "Option" && (
+                                        <div>
+                                            <h5 className="mb-0">
+                                                42.8%{" "}
+                                                <span className="text-success font-13">
+                                                    22% <i className="bx bx-up-arrow-alt" />
+                                                </span>
+                                            </h5>
+                                            <p className="mb-0">Conversion Rate</p>
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* ApexChart */}
+                                <div className="chart-js-container1">
+                                    <Chart
+                                        options={chartOptions}
+                                        series={chartSeries}
+                                        type="line"
+                                        height={300}
+                                    />
+                                </div>
                             </div>
-
                         </div>
-                        <hr />
-
-<div className="table-responsive d-flex justify-content-center">
-                        <Table
-                       
-                            columns={columns}
-                            data={clients}
-                        />
+                    </div>
+                    <div className="col-12 col-lg-4 col-xl-4 d-flex">
+                        <div className="card radius-10 overflow-hidden w-100">
+                            <div className="card-body">
+                                <div className="d-flex align-items-center mb-3">
+                                    <h5 className="mb-0">Top Categories</h5>
+                                    <div className="dropdown options ms-auto">
+                                        <div
+                                            className="dropdown-toggle dropdown-toggle-nocaret"
+                                            data-bs-toggle="dropdown"
+                                        >
+                                            <i className="bx bx-dots-horizontal-rounded" />
+                                        </div>
+                                        <ul className="dropdown-menu">
+                                            <li>
+                                                <a className="dropdown-item" href="javascript:;">
+                                                    Action
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a className="dropdown-item" href="javascript:;">
+                                                    Another action
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a className="dropdown-item" href="javascript:;">
+                                                    Something else here
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="chart-js-container2 mt-4">
+                                    <div className="piechart-legend">
+                                        <h2 className="mb-1">8,452</h2>
+                                        <h6 className="mb-0">Total Sessions</h6>
+                                    </div>
+                                    <canvas
+                                        id="chart2"
+                                        width={317}
+                                        height={224}
+                                        style={{
+                                            display: "block",
+                                            boxSizing: "border-box",
+                                            height: 250,
+                                            width: 352
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                            <ul className="list-group list-group-flush">
+                                <li className="list-group-item d-flex justify-content-between align-items-center border-top">
+                                    Clothing
+                                    <span className="badge bg-primary rounded-pill">558</span>
+                                </li>
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
+                                    Electronics
+                                    <span className="badge bg-success rounded-pill">204</span>
+                                </li>
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
+                                    Furniture
+                                    <span className="badge bg-danger rounded-pill">108</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+                {/*end row*/}
 
             </div>
 
+
         </div>
-    )
+    );
 }
 
-export default Dashbord
+export default Dashboard;

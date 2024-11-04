@@ -37,7 +37,7 @@ const Sidebar = ({ onToggleClick }) => {
                   <ul className="metismenu mm-show" id="menu">
                     <li>
                       <Link
-                        to={'/admin/dashboard'}
+                        to={'/client/dashboard'}
                       >
                         <div className="parent-icon">
                           <i className="bx bx-home-alt" />
@@ -46,6 +46,15 @@ const Sidebar = ({ onToggleClick }) => {
                       </Link>
 
                     </li>
+                    <li>
+                      <Link to="/staff/faq">
+                        <div className="parent-icon">
+                          <i className="bx bxs-chevron-right" />
+                        </div>
+                        <div className="menu-title">Signal
+                        </div>
+                      </Link>
+                    </li>
 
 
                     <li>
@@ -53,90 +62,78 @@ const Sidebar = ({ onToggleClick }) => {
                         <div className="parent-icon">
                           <i className="bx bx-user" />
                         </div>
-                        <div className="menu-title">Client </div>
+                        <div className="menu-title">Demat</div>
                       </Link>
                     </li>
-                   
-
-
-                    {/* <li>
-                      <Link to="/admin/service">
-                        <div className="parent-icon">
-                          <i className="bx bx-cog" />
-                        </div>
-                        <div className="menu-title">Services</div>
-                      </Link>
-                    </li> */}
 
                     <li>
                       <Link to="/staff/signal">
                         <div className="parent-icon">
                           <i className="bx bx-wifi-2" />
                         </div>
-                        <div className="menu-title">Signal
+                        <div className="menu-title">Subscription
                         </div>
                       </Link>
                     </li>
 
-                    {/* <li>
-                      <Link to="/staff/basket">
-                        <div className="parent-icon">
-                          <i className="bx bx-basket" />
-                        </div>
-                        <div className="menu-title">Basket</div>
-                      </Link>
-                    </li> */}
-                    {/* <li>
-                      <Link to="/staff/paymenthistory">
-                        <div className="parent-icon">
-                          <i className="bx bx-credit-card" />
-                        </div>
-                        <div className="menu-title">Payment History
-                        </div>
-                      </Link>
-                    </li> */}
 
-                    {/* <li>
-                      <Link to="/admin/refer">
-                        <div className="parent-icon">
-                          <i className="bx bxl-redux" />
-                        </div>
-                        <div className="menu-title">Refer & Earn</div>
-                      </Link>
-                    </li> */}
-
-                    {/* <li>
-                      <Link to="/admin/kyc">
-                        <div className="parent-icon">
-                          <i className="bx bx-edit-alt" />
-                        </div>
-                        <div className="menu-title">Kyc & Agreement
-                        </div>
-                      </Link>
-                    </li> */}
-
-                    
-                    {/* <li>
-                      <Link to="/admin/permision">
-                        <div className="parent-icon">
-                          <i className="bx bxs-coupon" />
-                        </div>
-                        <div className="menu-title">Permision
-                        </div>
-                      </Link>
-                    </li> */}
                     <li>
                       <Link to="/staff/faq">
                         <div className="parent-icon">
                           <i className="bx bxs-chevron-right" />
                         </div>
-                        <div className="menu-title">FAQ
+                        <div className="menu-title">Coupons
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/staff/faq">
+                        <div className="parent-icon">
+                          <i className="bx bxs-chevron-right" />
+                        </div>
+                        <div className="menu-title">Faq's
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/staff/faq">
+                        <div className="parent-icon">
+                          <i className="bx bxs-chevron-right" />
+                        </div>
+                        <div className="menu-title">Privacy Policy
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/staff/faq">
+                        <div className="parent-icon">
+                          <i className="bx bxs-chevron-right" />
+                        </div>
+                        <div className="menu-title">Terms & Condition
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/staff/faq">
+                        <div className="parent-icon">
+                          <i className="bx bxs-chevron-right" />
+                        </div>
+                        <div className="menu-title">Help Desk
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/staff/faq">
+                        <div className="parent-icon">
+                          <i className="bx bxs-chevron-right" />
+                        </div>
+                        <div className="menu-title">Broadcasts
                         </div>
                       </Link>
                     </li>
 
                   </ul>
-                 
+
                 </div>
               </div>
             </div>
