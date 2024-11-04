@@ -169,9 +169,9 @@ const Dashboard = () => {
                                         <div>
                                             <h5 className="mb-0">
                                                 1,218{" "}
-                                                <span className="text-danger font-13">
+                                                {/* <span className="text-danger font-13">
                                                     34% <i className="bx bx-down-arrow-alt" />
-                                                </span>
+                                                </span> */}
                                             </h5>
                                             <p className="mb-0">Total Sales</p>
                                         </div>
