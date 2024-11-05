@@ -42,10 +42,10 @@ const Dashboard = () => {
                                     <div>
                                         <p className="mb-0 text-secondary">Cash+Future+option</p>
                                         <h4 className="my-1">2 Months</h4>
-                                        <p className="mb-0 font-13 text-success">
+                                        {/* <p className="mb-0 font-13 text-success">
                                             <i className="bx bxs-up-arrow align-middle" />
                                             $34 from last week
-                                        </p>
+                                        </p> */}
                                     </div>
                                     <div className="widgets-icons rounded-circle text-white ms-auto bg-gradient-burning">
                                         <i className="bx bxs-wallet" />
@@ -61,10 +61,10 @@ const Dashboard = () => {
                                     <div>
                                         <p className="mb-0 text-secondary">Cash+Future</p>
                                         <h4 className="my-1">8.4K</h4>
-                                        <p className="mb-0 font-13 text-danger">
+                                        {/* <p className="mb-0 font-13 text-danger">
                                             <i className="bx bxs-down-arrow align-middle" />
                                             $24 from last week
-                                        </p>
+                                        </p> */}
                                     </div>
                                     <div className="widgets-icons rounded-circle text-white ms-auto bg-gradient-voilet">
                                         <i className="bx bxs-group" />
@@ -78,12 +78,12 @@ const Dashboard = () => {
                             <div className="card-body">
                                 <div className="d-flex align-items-center">
                                     <div>
-                                        <p className="mb-0 text-secondary">Store Visitors</p>
+                                        <p className="mb-0 text-secondary">Cash+Option</p>
                                         <h4 className="my-1">59K</h4>
-                                        <p className="mb-0 font-13 text-success">
+                                        {/* <p className="mb-0 font-13 text-success">
                                             <i className="bx bxs-up-arrow align-middle" />
                                             $34 from last week
-                                        </p>
+                                        </p> */}
                                     </div>
                                     <div className="widgets-icons rounded-circle text-white ms-auto bg-gradient-branding">
                                         <i className="bx bxs-binoculars" />
@@ -97,12 +97,12 @@ const Dashboard = () => {
                             <div className="card-body">
                                 <div className="d-flex align-items-center">
                                     <div>
-                                        <p className="mb-0 text-secondary">Bounce Rate</p>
+                                        <p className="mb-0 text-secondary">Future+Option</p>
                                         <h4 className="my-1">34.46%</h4>
-                                        <p className="mb-0 font-13 text-danger">
+                                        {/* <p className="mb-0 font-13 text-danger">
                                             <i className="bx bxs-down-arrow align-middle" />
                                             12.2% from last week
-                                        </p>
+                                        </p> */}
                                     </div>
                                     <div className="widgets-icons rounded-circle text-white ms-auto bg-gradient-kyoto">
                                         <i className="bx bx-line-chart-down" />
