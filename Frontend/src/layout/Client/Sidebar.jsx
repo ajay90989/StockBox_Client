@@ -49,7 +49,17 @@ const Sidebar = ({ onToggleClick }) => {
                     <li>
                       <Link to="/staff/faq">
                         <div className="parent-icon">
-                          <i className="bx bxs-chevron-right" />
+                          <i className="fadeIn animated bx bx-wifi-2" />
+                        </div>
+                        <div className="menu-title">Services
+                        </div>
+                      </Link>
+                    </li>
+                    
+                    <li>
+                      <Link to="/staff/faq">
+                        <div className="parent-icon">
+                          <i className="fadeIn animated bx bx-wifi-2" />
                         </div>
                         <div className="menu-title">Signal
                         </div>
@@ -60,13 +70,13 @@ const Sidebar = ({ onToggleClick }) => {
                     <li>
                       <Link to={'/client/client'}>
                         <div className="parent-icon">
-                          <i className="bx bx-user" />
+                          <i className="fadeIn animated bx bx-credit-card-front" />
                         </div>
                         <div className="menu-title">Demat</div>
                       </Link>
                     </li>
 
-                    {/* <li>
+                    <li>
                       <Link to="/staff/signal">
                         <div className="parent-icon">
                           <i className="bx bx-wifi-2" />
@@ -74,13 +84,13 @@ const Sidebar = ({ onToggleClick }) => {
                         <div className="menu-title">Subscription
                         </div>
                       </Link>
-                    </li> */}
+                    </li>
 
 
                     <li>
                       <Link to="/staff/faq">
                         <div className="parent-icon">
-                          <i className="bx bxs-chevron-right" />
+                          <i className="lni lni-offer" />
                         </div>
                         <div className="menu-title">Coupons
                         </div>

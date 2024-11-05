@@ -31,6 +31,67 @@ const Dashboard = () => {
     return (
         <div>
             <div className="page-content">
+                <div className="row row-cols-1 row-cols-lg-2 row-cols-xl-2">
+
+                    <div className="col">
+
+                        <div className="card">
+                            <div className="card-body">
+                                <div
+                                    id="carouselExampleFade"
+                                    className="carousel slide carousel-fade"
+                                    data-bs-ride="carousel"
+                                >
+                                    <div className="carousel-inner">
+                                        <div className="carousel-item">
+                                            <img
+                                                src="https://img.freepik.com/free-psd/super-sale-banner_1393-365.jpg?t=st=1730801514~exp=1730805114~hmac=11aa784422ee255b73489d55d199d762a6c81b8df93a16c93d752c227198bb4d&w=740"
+                                                className="d-block w-100"
+                                                alt="..."
+                                            />
+                                        </div>
+                                        <div className="carousel-item">
+                                            <img
+                                                src="https://img.freepik.com/free-psd/super-sale-banner_1393-365.jpg?t=st=1730801514~exp=1730805114~hmac=11aa784422ee255b73489d55d199d762a6c81b8df93a16c93d752c227198bb4d&w=740"
+                                                className="d-block w-100"
+                                                alt="..."
+                                            />
+                                        </div>
+                                        <div className="carousel-item active">
+                                            <img
+                                                src="https://img.freepik.com/free-vector/super-sale-horizontal-banner_52683-59532.jpg?t=st=1730801333~exp=1730804933~hmac=3362e4b195d4e0baed5a21ea0ee62abf69e3d9155499e85956cf642136db9f60&w=740"
+                                                className="d-block w-100"
+                                                alt="..."
+                                            />
+                                        </div>
+                                    </div>
+                                    <a
+                                        className="carousel-control-prev"
+                                        href="#carouselExampleFade"
+                                        role="button"
+                                        data-bs-slide="prev"
+                                    >
+                                        {" "}
+                                        <span className="carousel-control-prev-icon" aria-hidden="true" />
+                                        <span className="visually-hidden">Previous</span>
+                                    </a>
+                                    <a
+                                        className="carousel-control-next"
+                                        href="#carouselExampleFade"
+                                        role="button"
+                                        data-bs-slide="next"
+                                    >
+                                        {" "}
+                                        <span className="carousel-control-next-icon" aria-hidden="true" />
+                                        <span className="visually-hidden">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
                 <h6 className="mb-0 text-uppercase">Plans</h6>
                 <hr />
 

@@ -5,6 +5,7 @@ import Dashbord from '../layout/Client/Dashboard/Dashboard';
 import Sidebar from '../layout/Client/Sidebar'
 import Header from '../layout/Client/Header';
 import Footer from '../layout/Client/Footer';
+import Profiles from '../layout/Client/Profile/Profiles';
 
 
 
@@ -56,6 +57,7 @@ function Client() {
             <div className="page-wrapper">
                 <Routes>
                     <Route path="/dashboard" element={<Dashbord />} />
+                    <Route path="/profiles" element={<Profiles />} />
                 
             
                 </Routes>
