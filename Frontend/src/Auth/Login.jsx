@@ -8,10 +8,13 @@ import Swal from 'sweetalert2';
 const Login = () => {
 
 
+
+
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+
 
 
     const loginpageOpen = async (e) => {
@@ -58,6 +61,8 @@ const Login = () => {
         }
     };
 
+
+
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -74,6 +79,7 @@ const Login = () => {
 
 
 
+    
 
     return (
         <div className='bg-login'>
