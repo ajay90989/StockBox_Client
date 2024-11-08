@@ -865,7 +865,7 @@ a {
 
 	position: relative;
 
-	height: 450px
+	height: auto;
 }
 
 
@@ -5094,7 +5094,7 @@ input::placeholder {
 	line-height: 100px;
 	font-family: sans-serif;
 	text-transform: uppercase;
-	
+
 	cursor: pointer
 }
 
@@ -5185,7 +5185,7 @@ label {
 	line-height: 100px;
 	font-family: sans-serif;
 	text-transform: uppercase;
-	
+
 	cursor: pointer
 }
 
@@ -5241,7 +5241,7 @@ label {
 	line-height: 100px;
 	font-family: sans-serif;
 	text-transform: uppercase;
-	
+
 	cursor: pointer
 }
 
@@ -5255,7 +5255,7 @@ label {
 	line-height: 100px;
 	font-family: sans-serif;
 	text-transform: uppercase;
-	
+
 	cursor: pointer
 }
 
@@ -5269,7 +5269,7 @@ label {
 	line-height: 100px;
 	font-family: sans-serif;
 	text-transform: uppercase;
-	
+
 	cursor: pointer
 }
 
@@ -5382,6 +5382,7 @@ ul li {
 	cursor: pointer;
 	flex-grow: 1;
 }
+
 .btnprime:hover {
 	background-color: #5F73E4;
 	color: #fff !important;
@@ -5752,4 +5753,34 @@ ul li {
 
 .lni-arrow-left-circle:hover {
 	color: #128e0a;
+}
+
+
+
+.carousel-inner {
+	position: relative;
+	height: 168px;
+	width: 100%;
+	overflow: hidden;
+}
+
+.form-select {
+	border: 2px solid #4B636D;
+}
+
+.cradhead {
+	background: rgb(10, 21, 27);
+	background: linear-gradient(322deg, rgba(10, 21, 27, 1) 0%, rgba(82, 118, 117, 0.9864320728291317) 78%);
+
+}
+
+.btn {
+	border: 1px solid #4B636D;
+	background-color: #4B636D;
+}
+
+.btn:hover {
+	border: 1px solid #4B636D;
+	color: #4B636D;
+	background: #fff;
 }

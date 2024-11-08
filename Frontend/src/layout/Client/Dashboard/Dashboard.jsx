@@ -1,112 +1,192 @@
 import React, { useState } from 'react';
-import Chart from 'react-apexcharts';
+import { Bar, Pie } from 'react-chartjs-2';
+import 'chart.js/auto';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
-    const [activeTab, setActiveTab] = useState("Cash");
-    const chartOptions = {
-        chart: {
-            id: 'performance-chart',
-            type: 'line',
-        },
-        xaxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
-        },
-        stroke: {
-            curve: 'smooth',
-        },
-        markers: {
-            size: 5,
-        },
-        colors: ['#008FFB'],
+    const [performanceFilter, setPerformanceFilter] = useState('Cash');
+    const [topCategoriesFilter, setTopCategoriesFilter] = useState('Cash');
+
+    // Data for Performance (Bar Chart)
+    const performanceData = {
+        Cash: [12, 19, 3, 5, 2, 3],
+        Future: [15, 9, 8, 12, 5, 7],
+        Option: [5, 3, 10, 2, 20, 4],
     };
 
-    const chartSeries = [
-        {
-            name: 'Performance',
-            data: activeTab === "Cash" ? [10, 41, 35, 51, 49, 62, 69, 91, 148]
-                : activeTab === "Future" ? [30, 70, 35, 80, 59, 95, 70, 115, 200]
-                    : [15, 40, 20, 30, 45, 60, 65, 80, 100], // Sample data for each tab
-        },
-    ];
+    // Data for Top Categories (Pie Chart)
+    const topCategoriesData = {
+        Cash: [300, 500, 100, 200],
+        Future: [400, 300, 500, 150],
+        Option: [200, 400, 300, 250],
+    };
+
+    // Colors for Performance Data (Bar Chart)
+    const colors = {
+        Cash: 'rgba(75, 192, 192, 0.6)',    // Teal for Cash
+        Future: 'rgba(255, 159, 64, 0.6)',  // Orange for Future
+        Option: 'rgba(153, 102, 255, 0.6)', // Purple for Option
+    };
+
+    // Bar Chart Data
+    const barData = {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [
+            {
+                label: performanceFilter,
+                data: performanceData[performanceFilter],
+                backgroundColor: colors[performanceFilter],
+            },
+        ],
+    };
+
+    // Pie Chart Data (Based on Performance Filter)
+    const pieData = {
+        labels: ['Hits', 'Miss'],
+        datasets: [
+            {
+                label: topCategoriesFilter,
+                data: topCategoriesData[performanceFilter], // Using the same filter for Pie chart
+                backgroundColor: [
+
+                    '#0DBE34',
+                    '#FF6384',
+
+                ],
+            },
+        ],
+    };
+
     return (
         <div>
             <div className="page-content">
-                <div className="row row-cols-1 row-cols-lg-2 row-cols-xl-2">
+                <div className="pricing-table">
+                    <div className='d-flex justify-content-between'>
+                        <h6 className="mb-0 text-uppercase">Subscribed Plans</h6>
+                        <Link to="">View All</Link>
+                    </div>
+                    <hr />
+                    <div className="row">
+                        {/* Free Tier */}
+                        <div className="col-4">
+                            <div className="card mb-5 mb-lg-0">
+                                <div className="card-header bg-danger py-3">
+                                    <h5 className="card-title text-white text-uppercase text-center">
+                                        Cash + Option
+                                    </h5>
+                                    <h6 className="card-price text-white text-center">
+                                        ₹5999<span className="term">3months</span>
+                                    </h6>
+                                </div>
+                                <div className="card-body">
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item">
 
-                    <div className="col">
+                                            <b> start Date:</b> 7/03/2024
+                                        </li>
 
-                        <div className="card">
-                            <div className="card-body">
-                                <div
-                                    id="carouselExampleFade"
-                                    className="carousel slide carousel-fade"
-                                    data-bs-ride="carousel"
-                                >
-                                    <div className="carousel-inner">
-                                        <div className="carousel-item">
-                                            <img
-                                                src="https://img.freepik.com/free-psd/super-sale-banner_1393-365.jpg?t=st=1730801514~exp=1730805114~hmac=11aa784422ee255b73489d55d199d762a6c81b8df93a16c93d752c227198bb4d&w=740"
-                                                className="d-block w-100"
-                                                alt="..."
-                                            />
-                                        </div>
-                                        <div className="carousel-item">
-                                            <img
-                                                src="https://img.freepik.com/free-psd/super-sale-banner_1393-365.jpg?t=st=1730801514~exp=1730805114~hmac=11aa784422ee255b73489d55d199d762a6c81b8df93a16c93d752c227198bb4d&w=740"
-                                                className="d-block w-100"
-                                                alt="..."
-                                            />
-                                        </div>
-                                        <div className="carousel-item active">
-                                            <img
-                                                src="https://img.freepik.com/free-vector/super-sale-horizontal-banner_52683-59532.jpg?t=st=1730801333~exp=1730804933~hmac=3362e4b195d4e0baed5a21ea0ee62abf69e3d9155499e85956cf642136db9f60&w=740"
-                                                className="d-block w-100"
-                                                alt="..."
-                                            />
-                                        </div>
+                                        <li className="list-group-item">
+
+                                            <b>End Date:</b> 7/04/2024
+                                        </li>
+
+
+                                    </ul>
+                                    <div className="d-grid">
+                                        {" "}
+                                        <a className="btn btn-danger my-2 radius-30">
+                                            Subscribed
+                                        </a>
                                     </div>
-                                    <a
-                                        className="carousel-control-prev"
-                                        href="#carouselExampleFade"
-                                        role="button"
-                                        data-bs-slide="prev"
-                                    >
+                                </div>
+                            </div>
+                        </div>
+                        {/* Plus Tier */}
+                        <div className="col-4">
+                            <div className="card mb-5 mb-lg-0">
+                                <div className="card-header bg-primary py-3">
+                                    <h5 className="card-title text-white text-uppercase text-center">
+                                        Cash + Option
+                                    </h5>
+                                    <h6 className="card-price text-white text-center">
+                                        ₹ 1199<span className="term"> 3months</span>
+                                    </h6>
+                                </div>
+                                <div className="card-body">
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item">
+
+                                            <b> start Date:</b> 7/03/2024
+                                        </li>
+
+                                        <li className="list-group-item">
+
+                                            <b>End Date:</b> 7/04/2024
+                                        </li>
+
+
+                                    </ul>
+                                    <div className="d-grid">
                                         {" "}
-                                        <span className="carousel-control-prev-icon" aria-hidden="true" />
-                                        <span className="visually-hidden">Previous</span>
-                                    </a>
-                                    <a
-                                        className="carousel-control-next"
-                                        href="#carouselExampleFade"
-                                        role="button"
-                                        data-bs-slide="next"
-                                    >
+                                        <a className="btn btn-primary my-2 radius-30">
+                                            Subscribed
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Pro Tier */}
+                        <div className="col-4">
+                            <div className="card">
+                                <div className="card-header bg-warning py-3">
+                                    <h5 className="card-title text-dark text-uppercase text-center">
+                                        Cash + Future
+                                    </h5>
+                                    <h6 className="card-price text-center">
+                                        ₹15999<span className="term">3months</span>
+                                    </h6>
+                                </div>
+                                <div className="card-body">
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item">
+
+                                            <b> start Date:</b> 7/03/2024
+                                        </li>
+
+                                        <li className="list-group-item">
+
+                                            <b>End Date:</b> 7/04/2024
+                                        </li>
+
+
+                                    </ul>
+                                    <div className="d-grid">
                                         {" "}
-                                        <span className="carousel-control-next-icon" aria-hidden="true" />
-                                        <span className="visually-hidden">Next</span>
-                                    </a>
+                                        <a className="btn btn-warning my-2 radius-30">
+                                            Subscribed
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {/*end row*/}
+
 
                 </div>
 
-                <h6 className="mb-0 text-uppercase">Plans</h6>
-                <hr />
-
-                <div className="row">
-                    <div className="col-md-3">
+                {/* <div className="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4">
+                    <div className="col">
                         <div className="card radius-10">
                             <div className="card-body">
                                 <div className="d-flex align-items-center">
                                     <div>
-                                        <p className="mb-0 text-secondary">Cash+Future+option</p>
-                                        <h4 className="my-1">2 Months</h4>
-                                        {/* <p className="mb-0 font-13 text-success">
+                                        <p className="mb-0 text-secondary">Revenue</p>
+                                        <h4 className="my-1">$4805</h4>
+                                        <p className="mb-0 font-13 text-success">
                                             <i className="bx bxs-up-arrow align-middle" />
                                             $34 from last week
-                                        </p> */}
+                                        </p>
                                     </div>
                                     <div className="widgets-icons rounded-circle text-white ms-auto bg-gradient-burning">
                                         <i className="bx bxs-wallet" />
@@ -115,17 +195,17 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col">
                         <div className="card radius-10">
                             <div className="card-body">
                                 <div className="d-flex align-items-center">
                                     <div>
-                                        <p className="mb-0 text-secondary">Cash+Future</p>
+                                        <p className="mb-0 text-secondary">Total Customers</p>
                                         <h4 className="my-1">8.4K</h4>
-                                        {/* <p className="mb-0 font-13 text-danger">
+                                        <p className="mb-0 font-13 text-danger">
                                             <i className="bx bxs-down-arrow align-middle" />
                                             $24 from last week
-                                        </p> */}
+                                        </p>
                                     </div>
                                     <div className="widgets-icons rounded-circle text-white ms-auto bg-gradient-voilet">
                                         <i className="bx bxs-group" />
@@ -134,17 +214,17 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col">
                         <div className="card radius-10">
                             <div className="card-body">
                                 <div className="d-flex align-items-center">
                                     <div>
-                                        <p className="mb-0 text-secondary">Cash+Option</p>
+                                        <p className="mb-0 text-secondary">Store Visitors</p>
                                         <h4 className="my-1">59K</h4>
-                                        {/* <p className="mb-0 font-13 text-success">
+                                        <p className="mb-0 font-13 text-success">
                                             <i className="bx bxs-up-arrow align-middle" />
                                             $34 from last week
-                                        </p> */}
+                                        </p>
                                     </div>
                                     <div className="widgets-icons rounded-circle text-white ms-auto bg-gradient-branding">
                                         <i className="bx bxs-binoculars" />
@@ -153,17 +233,17 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col">
                         <div className="card radius-10">
                             <div className="card-body">
                                 <div className="d-flex align-items-center">
                                     <div>
-                                        <p className="mb-0 text-secondary">Future+Option</p>
+                                        <p className="mb-0 text-secondary">Bounce Rate</p>
                                         <h4 className="my-1">34.46%</h4>
-                                        {/* <p className="mb-0 font-13 text-danger">
+                                        <p className="mb-0 font-13 text-danger">
                                             <i className="bx bxs-down-arrow align-middle" />
                                             12.2% from last week
-                                        </p> */}
+                                        </p>
                                     </div>
                                     <div className="widgets-icons rounded-circle text-white ms-auto bg-gradient-kyoto">
                                         <i className="bx bx-line-chart-down" />
@@ -172,101 +252,54 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                {/*end row*/}
+                </div> */}
+
                 <div className="row">
                     <div className="col-12 col-lg-8 col-xl-8 d-flex">
                         <div className="card radius-10 w-100">
                             <div className="card-body">
                                 <div className="d-flex align-items-center mb-3">
-                                    <h5 className="mb-0">Past Performance</h5>
-                                    <div className="options ms-auto">
-                                        <ul className="nav nav-tabs">
-                                            <li className="nav-item">
-                                                <button
-                                                    className={`nav-link ${activeTab === "Cash" ? "active" : ""}`}
-                                                    onClick={() => setActiveTab("Cash")}
-                                                >
-                                                    Cash
-                                                </button>
-                                            </li>
-                                            <li className="nav-item">
-                                                <button
-                                                    className={`nav-link ${activeTab === "Future" ? "active" : ""}`}
-                                                    onClick={() => setActiveTab("Future")}
-                                                >
-                                                    Future
-                                                </button>
-                                            </li>
-                                            <li className="nav-item">
-                                                <button
-                                                    className={`nav-link ${activeTab === "Option" ? "active" : ""}`}
-                                                    onClick={() => setActiveTab("Option")}
-                                                >
-                                                    Option
-                                                </button>
-                                            </li>
+                                    <h5 className="mb-0">Performance</h5>
+                                    <div className="dropdown options ms-auto">
+                                        <div
+                                            className="dropdown-toggle dropdown-toggle-nocaret"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                        >
+                                            <i className="bx bx-dots-horizontal-rounded" />
+                                        </div>
+                                        <ul className="dropdown-menu">
+                                            {['Cash', 'Future', 'Option'].map((filter) => (
+                                                <li key={filter}>
+                                                    <button
+                                                        className={`dropdown-item ${performanceFilter === filter ? 'active-filter' : ''
+                                                            }`}
+                                                        onClick={() => {
+                                                            setPerformanceFilter(filter);  // Update Performance filter
+                                                            setTopCategoriesFilter(filter); // Also update Pie chart filter
+                                                        }}
+                                                        style={{
+                                                            cursor: 'pointer',
+                                                            border: 'none',
+                                                            background: performanceFilter === filter ? '#e0e0e0' : 'none',
+                                                        }}
+                                                    >
+                                                        {filter}
+                                                    </button>
+                                                </li>
+                                            ))}
                                         </ul>
                                     </div>
                                 </div>
-
-                                <div className="hstack flex-wrap align-items-center justify-content-between gap-3 gap-sm-4 mb-3 border p-3 radius-10">
-                                    {activeTab === "Cash" && (
-                                        <div>
-                                            <div>
-                                                <h5 className="mb-0">
-                                                    974{" "}
-                                                    <span className="text-success font-13">
-                                                        56% <i className="bx bx-up-arrow-alt" />
-                                                    </span>
-                                                </h5>
-                                                <p className="mb-0">Avg.return/Month</p>
-                                            </div>
-                                        </div>
-
-
-                                    )}
-                                    {activeTab === "Future" && (
-                                        <div>
-                                            <h5 className="mb-0">
-                                                1,218{" "}
-                                                {/* <span className="text-danger font-13">
-                                                    34% <i className="bx bx-down-arrow-alt" />
-                                                </span> */}
-                                            </h5>
-                                            <p className="mb-0">Total Sales</p>
-                                        </div>
-                                    )}
-                                    {activeTab === "Option" && (
-                                        <div>
-                                            <h5 className="mb-0">
-                                                42.8%{" "}
-                                                <span className="text-success font-13">
-                                                    22% <i className="bx bx-up-arrow-alt" />
-                                                </span>
-                                            </h5>
-                                            <p className="mb-0">Conversion Rate</p>
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* ApexChart */}
-                                <div className="chart-js-container1">
-                                    <Chart
-                                        options={chartOptions}
-                                        series={chartSeries}
-                                        type="line"
-                                        height={300}
-                                    />
-                                </div>
+                                <Bar data={barData} height={300} />
                             </div>
                         </div>
                     </div>
                     <div className="col-12 col-lg-4 col-xl-4 d-flex">
-                        <div className="card radius-10 overflow-hidden w-100">
+                        <div className="card radius-10 w-100">
                             <div className="card-body">
                                 <div className="d-flex align-items-center mb-3">
-                                    <h5 className="mb-0">Top Categories</h5>
+                                    <h5 className="mb-0">Ideal hit Accuracy</h5>
                                     <div className="dropdown options ms-auto">
                                         <div
                                             className="dropdown-toggle dropdown-toggle-nocaret"
@@ -275,66 +308,33 @@ const Dashboard = () => {
                                             <i className="bx bx-dots-horizontal-rounded" />
                                         </div>
                                         <ul className="dropdown-menu">
-                                            <li>
-                                                <a className="dropdown-item" href="javascript:;">
-                                                    Action
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a className="dropdown-item" href="javascript:;">
-                                                    Another action
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a className="dropdown-item" href="javascript:;">
-                                                    Something else here
-                                                </a>
-                                            </li>
+                                            {['Cash', 'Future', 'Option'].map((filter) => (
+                                                <li key={filter}>
+                                                    <button
+                                                        className={`dropdown-item ${topCategoriesFilter === filter ? 'active-filter' : ''
+                                                            }`}
+                                                        onClick={() => setTopCategoriesFilter(filter)}
+                                                        style={{
+                                                            cursor: 'pointer',
+                                                            border: 'none',
+                                                            background: topCategoriesFilter === filter ? '#e0e0e0' : 'none',
+                                                        }}
+                                                    >
+                                                        {filter}
+                                                    </button>
+                                                </li>
+                                            ))}
                                         </ul>
                                     </div>
                                 </div>
-                                <div className="chart-js-container2 mt-4">
-                                    <div className="piechart-legend">
-                                        <h2 className="mb-1">8,452</h2>
-                                        <h6 className="mb-0">Total Sessions</h6>
-                                    </div>
-                                    <canvas
-                                        id="chart2"
-                                        width={317}
-                                        height={224}
-                                        style={{
-                                            display: "block",
-                                            boxSizing: "border-box",
-                                            height: 250,
-                                            width: 352
-                                        }}
-                                    />
-                                </div>
+                                <Pie data={pieData} height={250} />
                             </div>
-                            <ul className="list-group list-group-flush">
-                                <li className="list-group-item d-flex justify-content-between align-items-center border-top">
-                                    Clothing
-                                    <span className="badge bg-primary rounded-pill">558</span>
-                                </li>
-                                <li className="list-group-item d-flex justify-content-between align-items-center">
-                                    Electronics
-                                    <span className="badge bg-success rounded-pill">204</span>
-                                </li>
-                                <li className="list-group-item d-flex justify-content-between align-items-center">
-                                    Furniture
-                                    <span className="badge bg-danger rounded-pill">108</span>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
-                {/*end row*/}
-
             </div>
-
-
         </div>
     );
-}
+};
 
 export default Dashboard;

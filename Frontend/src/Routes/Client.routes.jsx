@@ -6,6 +6,8 @@ import Sidebar from '../layout/Client/Sidebar'
 import Header from '../layout/Client/Header';
 import Footer from '../layout/Client/Footer';
 import Profiles from '../layout/Client/Profile/Profiles';
+import Service from '../layout/Client_service/Service';
+import Trade from '../layout/Client/Client_trade/Trade';
 
 
 
@@ -58,6 +60,8 @@ function Client() {
                 <Routes>
                     <Route path="/dashboard" element={<Dashbord />} />
                     <Route path="/profiles" element={<Profiles />} />
+                    <Route path="/service" element={<Service />} />
+                    <Route path="/trade" element={<Trade />} />
                 
             
                 </Routes>

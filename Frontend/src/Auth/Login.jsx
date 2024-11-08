@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login_Api } from "../Services/Apis"
 import { Link } from 'react-router-dom';
@@ -39,7 +39,12 @@ const Login = () => {
                     localStorage.setItem("id", login_data.data.data.id);
                     localStorage.setItem("Role", login_data.data.data.Role);
                     localStorage.setItem("FullName", login_data.data.data.FullName);
-                    navigate("/client/dashboard");
+
+                    navigate("/client/trade");
+                    setTimeout(() => {
+                        navigate("/client/dashboard");
+                    }, 5000);
+
                 });
             } else {
                 Swal.fire({
@@ -79,7 +84,7 @@ const Login = () => {
 
 
 
-    
+
 
     return (
         <div className='bg-login'>
@@ -151,7 +156,7 @@ const Login = () => {
                                                     </div>
                                                 </div>
                                                 <div className="col-md-6 text-end">
-                                        
+
                                                     <p className="mb-0">
 
                                                         <Link to="/forget">Forgot Password?</Link>
@@ -165,12 +170,12 @@ const Login = () => {
                                                         </button>
                                                     </div>
                                                 </div>
-                                                
+
                                             </form>
                                             {error && <div className="alert alert-danger mt-3">{error}</div>}
                                         </div>
                                         <div className="login-separater text-center mb-5">
-                                    
+
                                         </div>
 
                                     </div>
