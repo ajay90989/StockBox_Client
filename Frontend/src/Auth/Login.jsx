@@ -40,10 +40,10 @@ const Login = () => {
                     localStorage.setItem("Role", login_data.data.data.Role);
                     localStorage.setItem("FullName", login_data.data.data.FullName);
 
-                    navigate("/client/trade");
+                    navigate("/welcome");
                     setTimeout(() => {
                         navigate("/client/dashboard");
-                    }, 5000);
+                    }, 10000);
 
                 });
             } else {

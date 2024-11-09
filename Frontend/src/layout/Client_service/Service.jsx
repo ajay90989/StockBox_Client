@@ -1,205 +1,133 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import Table from '../../../components/Table';
-// import { fDate } from '../../../Utils/Date_formate';
-
-
 
 const FreetrialStatus = () => {
-    const token = localStorage.getItem('token');
+    const [selectedPlan, setSelectedPlan] = useState("");
 
-    const [ForGetCSV, setForGetCSV] = useState([])
+    // Define the data for each plan, with details for 3 months, 6 months, and annual plans
+    const plansData = {
+        saab: {
+            title: "Intraday",
+            plans: [
+                {
+                    duration: "1 MONTHS PLAN",
+                    priceOriginal: "Cash+Future",
 
-    const [data, setData] = useState([]);
-    const [addStatus, setAddStatus] = useState({
-        id: "",
-        freetrial: ""
-    });
+                    features: [" ₹5000", "Basic",],
+                },
+                {
+                    duration: "3 MONTHS PLAN",
 
-    const handleSelectChange = (event) => {
-        setAddStatus({ ...addStatus, freetrial: event.target.value });
+                    priceOriginal: "Cash+Option",
+                    features: [" ₹11999", "Intraday(cash+Option)"],
+                },
+
+            ]
+        },
+        shrt: {
+            title: "Short Term",
+            plans: [
+                {
+                    duration: "3 MONTHS PLAN",
+                    priceCurrent: "US$25",
+                    priceOriginal: "$70",
+                    features: ["20 Downloads a day", "90 Days access", "Limited commercial licenses"],
+                },
+                {
+                    duration: "6 MONTHS PLAN",
+                    priceCurrent: "US$45",
+                    priceOriginal: "$140",
+                    features: ["20 Downloads a day", "180 Days access", "Limited commercial licenses"],
+                },
+                {
+                    duration: "ANNUAL PLAN",
+                    priceCurrent: "Basic",
+                    priceOriginal: "$280",
+                    features: ["Unlimited downloads", "365 Days access", "Limited commercial licenses"],
+                }
+            ]
+        },
+        lng: {
+            title: "Long Term",
+            plans: [
+                {
+                    duration: "1 MONTHS PLAN",
+                    priceCurrent: "US$26",
+                    priceOriginal: "$70",
+                    features: ["20 Downloads a day", "90 Days access", "Limited commercial licenses"],
+                },
+                {
+                    duration: "3 MONTHS PLAN",
+                    priceCurrent: "US$27",
+                    priceOriginal: "$140",
+                    features: ["20 Downloads a day", "180 Days access", "Limited commercial licenses"],
+                },
+
+            ]
+        },
+        // Add data for other plans as needed
     };
 
-
-
-
-
-    const columns = [
-        {
-            name: 'S.No',
-            selector: (row, index) => index + 1,
-            sortable: false,
-
-        },
-        {
-            name: 'Privious Status',
-            selector: row => `${row.olddays}Day`,
-            sortable: true,
-            width: "200px",
-        },
-        {
-            name: 'Updated Status',
-            selector: row => `${row.newdays}Day`,
-            sortable: true,
-            width: "200px",
-        },
-
-
-    ];
-
-
-
+    const handleSelectChange = (event) => {
+        setSelectedPlan(event.target.value);
+    };
 
     return (
-        <div>
-
-            <div className="page-content">
-
-                <div className="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div className="breadcrumb-title pe-3">Services</div>
-                    <div className="ps-3">
-                        <nav aria-label="breadcrumb">
-                            <ol className="breadcrumb mb-0 p-0">
-                                <li className="breadcrumb-item">
-                                    <Link to="/admin/dashboard">
-                                        <i className="bx bx-home-alt" />
-                                    </Link>
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
+        <div className="page-content">
+            <div className="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+                <div className="breadcrumb-title pe-3">Services</div>
+                <div className="ps-3">
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb mb-0 p-0">
+                            <li className="breadcrumb-item">
+                                <Link to="/admin/dashboard">
+                                    <i className="bx bx-home-alt" />
+                                </Link>
+                            </li>
+                        </ol>
+                    </nav>
                 </div>
-                <hr />
+            </div>
+            <hr />
 
-                <div className="card">
-                    <div className="card-body">
-                        <div>
-                            <label htmlFor="" className='mb-1'>Plans For You</label>
-                            <div className='col-lg-4 d-flex '>
-
-                                <select className="form-select" value={addStatus.freetrial} onChange={handleSelectChange}>
-                                    <option value="" disabled>
-                                        Select Plans
-                                    </option>
-                                    <option value="saab">Intraday</option>
-                                    <option value="shrt">Short Term</option>
-                                    <option value="lng">Long Term</option>
-                                    <option value="combo">Combo</option>
-                                    <option value="gold">Gold</option>
-                                    <option value="hni">HNI</option>
-                                    <option value="nifty">NIFTY+Future</option>
-                                    <option value="equity">EQUITY Hero</option>
-                                    <option value="priya">Priya</option>
-                                </select>
-
-                                {/* <button className='btn btn-primary ms-2' >
-                                    Update
-                                </button> */}
-
-                            </div>
-
-
+            <div className="card">
+                <div className="card-body">
+                    <div>
+                        <label htmlFor="" className='mb-1'>Plans For You</label>
+                        <div className='col-lg-4 d-flex '>
+                            <select className="form-select" value={selectedPlan} onChange={handleSelectChange}>
+                                <option value="" disabled>Select Plans</option>
+                                <option value="saab">Intraday</option>
+                                <option value="shrt">Short Term</option>
+                                <option value="lng">Long Term</option>
+                                {/* Add other options as needed */}
+                            </select>
                         </div>
-
-
-                        <div className="row mt-5">
-                            <div className="col-4 d-flex justify-content-center">
-                                <div className="card radius-10 w-100" style={{ border: "2px solid #595F5D", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)" }}>
-                                    <div className="card-header cradhead" style={{ borderBottom: "1px solid #595F5D", padding: "1rem" }}>
-                                        <div className="d-flex align-items-center">
-                                            <div>
-                                                <h5 className="mb-0 text-white" style={{ fontWeight: "bold" }}>1 Month</h5>
-                                                <p className="text-white" style={{ margin: "0" }}>Cash+Option</p>
-                                            </div>
-                                            <div className="d-flex align-items-center ms-auto">
-                                                <Link to="">
-                                                    <i className='fadeIn animated bx bx-info-circle' style={{ fontSize: "28px", color: "#fff" }}></i>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="product-list p-4 text-center" style={{ backgroundColor: "#f8f9fa" }}>
-                                        <h4 className="mb-1">Basic</h4>
-                                        <h5 className="mb-0" style={{ fontWeight: "bold" }}>₹5000</h5>
-                                    </div>
-                                    <div className="card-footer" style={{ padding: "1rem" }}>
-                                        <div className="d-flex justify-content-center">
-                                            <button className="btn btn-primary" style={{ width: "150px", borderRadius: "25px", fontWeight: "bold" }}>
-                                                Subscribe
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-4 d-flex justify-content-center">
-                                <div className="card radius-10 w-100" style={{ border: "2px solid #595F5D", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)" }}>
-                                    <div className="card-header cradhead" style={{ borderBottom: "1px solid #595F5D", padding: "1rem" }}>
-                                        <div className="d-flex align-items-center">
-                                            <div>
-                                                <h5 className="mb-0 text-white" style={{ fontWeight: "bold" }}>1 Month</h5>
-                                                <p className="text-white" style={{ margin: "0" }}>Cash+Option</p>
-                                            </div>
-                                            <div className="d-flex align-items-center ms-auto">
-                                                <Link to="">
-                                                    <i className='fadeIn animated bx bx-info-circle' style={{ fontSize: "28px", color: "#fff" }}></i>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="product-list p-4 text-center" style={{ backgroundColor: "#f8f9fa" }}>
-                                        <h4 className="mb-1">Basic</h4>
-                                        <h5 className="mb-0" style={{ fontWeight: "bold" }}>₹5000</h5>
-                                    </div>
-                                    <div className="card-footer" style={{ padding: "1rem" }}>
-                                        <div className="d-flex justify-content-center">
-                                            <button className="btn btn-primary" style={{ width: "150px", borderRadius: "25px", fontWeight: "bold" }}>
-                                                Subscribe
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-4 d-flex justify-content-center">
-                                <div className="card radius-10 w-100" style={{ border: "2px solid #595F5D", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)" }}>
-                                    <div className="card-header cradhead" style={{ borderBottom: "1px solid #595F5D", padding: "1rem" }}>
-                                        <div className="d-flex align-items-center">
-                                            <div>
-                                                <h5 className="mb-0 text-white" style={{ fontWeight: "bold" }}>1 Month</h5>
-                                                <p className="text-white" style={{ margin: "0" }}>Cash+Option</p>
-                                            </div>
-                                            <div className="d-flex align-items-center ms-auto">
-                                                <Link to="">
-                                                    <i className='fadeIn animated bx bx-info-circle' style={{ fontSize: "28px", color: "#fff" }}></i>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="product-list p-4 text-center" style={{ backgroundColor: "#f8f9fa" }}>
-                                        <h4 className="mb-1">Basic</h4>
-                                        <h5 className="mb-0" style={{ fontWeight: "bold" }}>₹5000</h5>
-                                    </div>
-                                    <div className="card-footer" style={{ padding: "1rem" }}>
-                                        <div className="d-flex justify-content-center">
-                                            <button className="btn btn-primary" style={{ width: "150px", borderRadius: "25px", fontWeight: "bold" }}>
-                                                Subscribe
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
+
+                    {selectedPlan && (
+                        <div className="pricing-container price1 row mt-4">
+                            {plansData[selectedPlan].plans.map((plan, index) => (
+                                <div className="card card1 col-md-4" key={index}>
+                                    <h3 className="plan-title">{plan.duration}</h3>
+                                    <div className="price">
+                                        <span className="price-current">{plan.priceCurrent}</span>
+                                        <span className="price-original">{plan.priceOriginal}</span>
+                                    </div>
+                                    <ul className="features">
+                                        {plan.features.map((feature, idx) => (
+                                            <li key={idx}>{feature}</li>
+                                        ))}
+                                    </ul>
+                                    <button className="subscribe-button">Subscribe now</button>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
     );
 };
-
-
-
-
 
 export default FreetrialStatus;
