@@ -5445,8 +5445,8 @@ ul li {
 
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
-	background: linear-gradient(90deg, rgba(246, 140, 226, 1) 0%, rgba(129, 191, 211, 1) 0%, rgba(43, 23, 83, 1) 0%, rgba(207, 92, 166, 1) 100%);
-
+	/* background: linear-gradient(90deg, rgba(246, 140, 226, 1) 0%, rgba(129, 191, 211, 1) 0%, rgba(43, 23, 83, 1) 0%, rgba(207, 92, 166, 1) 100%); */
+background: #0092e4 !important;
 	color: var(--bs-nav-pills-link-active-color);
 
 }
@@ -5778,7 +5778,7 @@ ul li {
 	font-size: 20px;
 	font-weight: bold;
 	color: #333;
-	margin-bottom: 15px;
+	margin: 0;
 }
 
 .price {
@@ -5792,7 +5792,7 @@ ul li {
 }
 
 .price-current {
-	font-size: 36px;
+	font-size: 23px;
 	color: #333;
 	margin-right: 10px;
 }
@@ -5805,7 +5805,7 @@ ul li {
 
 .features {
 	list-style-type: none;
-	margin: 20px 0;
+	margin: 0px 0;
 	color: #4CAF50;
 	font-size: 16px;
 	font-weight: 500;
@@ -6283,3 +6283,15 @@ a:visited {
 	text-decoration: none;
 }
 
+
+
+.card1 {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card1:hover {
+	transform: scale(1.05);
+	/* Slightly enlarge the card on hover */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	/* Add a shadow effect */
+}
