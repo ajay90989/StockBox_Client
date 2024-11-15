@@ -6340,10 +6340,30 @@ a:visited {
 	--bs-border-radius-lg: 1rem 1rem 1rem 1rem !important;
 }
 
+/* Custom styles for the DataTable */
 .custom-data-table {
-	/* Hide scrollbar */
+	border-radius: 10px;
 
+	overflow: hidden;
+
+}
+
+
+.custom-data-table::-webkit-scrollbar {
 	scrollbar-width: thin;
 
+}
+
+.custom-data-table::-webkit-scrollbar-thumb {
+	background-color: #0092e4;
+
+	border-radius: 10px;
+
+}
+
+.custom-data-table::-webkit-scrollbar-track {
+	background-color: #f0f0f0;
+
+	border-radius: 10px;
 
 }

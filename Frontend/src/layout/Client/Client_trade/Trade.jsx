@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import DataTable from 'react-data-table-component'
+import { Eye } from 'lucide-react';
+import { Button, Tooltip } from 'antd';
 
 const Trade = () => {
     const [selectedPlan, setSelectedPlan] = useState("cash");
@@ -10,18 +12,18 @@ const Trade = () => {
     };
     // Define your static data
     const data = [
-        { id: 1, sno: '1', segment: 'Cash ', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target: '-', stoploss: '₹770', hold: '(15-30days)' },
-        { id: 2, sno: '2', segment: 'Future', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target: '-', stoploss: '₹770', hold: '(15-30days)' },
-        { id: 3, sno: '3', segment: 'Option', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target: '-', stoploss: '₹770', hold: '(15-30days)' },
-        { id: 4, sno: '4', segment: 'Cash', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target: '-', stoploss: '₹770', hold: '(15-30days)' },
-        { id: 5, sno: '5', segment: 'Future', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target: '-', stoploss: '₹770', hold: '(15-30days)' },
-        { id: 6, sno: '6', segment: 'Option', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target: '-', stoploss: '₹770', hold: '(15-30days)' },
-        { id: 7, sno: '7', segment: 'Cash', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target: '-', stoploss: '₹770', hold: '(15-30days)' },
-        { id: 8, sno: '8', segment: 'Future', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target: '-', stoploss: '₹770', hold: '(15-30days)' },
-        { id: 9, sno: '9', segment: 'Option', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target: '-', stoploss: '₹770', hold: '(15-30days)' },
-        { id: 10, sno: '10', segment: 'Cash', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target: '-', stoploss: '₹770', hold: '(15-30days)' },
-        { id: 11, sno: '11', segment: 'Future', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target: '-', stoploss: '₹770', hold: '(15-30days)' },
-        { id: 12, sno: '12', segment: 'Option', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target: '-', stoploss: '₹770', hold: '(15-30days)' },
+        { id: 1, sno: '1', segment: 'Cash ', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target1: '₹710', target2: '₹720', target3: '₹730', stoploss: '₹770', hold: '(15-30days)' },
+        { id: 2, sno: '2', segment: 'Future', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target1: '₹710', target2: '₹720', target3: '₹730', stoploss: '₹770', hold: '(15-30days)' },
+        { id: 3, sno: '3', segment: 'Option', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target1: '₹710', target2: '₹720', target3: '₹730', stoploss: '₹770', hold: '(15-30days)' },
+        { id: 4, sno: '4', segment: 'Cash', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target1: '₹710', target2: '₹720', target3: '₹730', stoploss: '₹770', hold: '(15-30days)' },
+        { id: 5, sno: '5', segment: 'Future', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target1: '₹710', target2: '₹720', target3: '₹730', stoploss: '₹770', hold: '(15-30days)' },
+        { id: 6, sno: '6', segment: 'Option', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target1: '₹710', target2: '₹720', target3: '₹730', stoploss: '₹770', hold: '(15-30days)' },
+        { id: 7, sno: '7', segment: 'Cash', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target1: '₹710', target2: '₹720', target3: '₹730', stoploss: '₹770', hold: '(15-30days)' },
+        { id: 8, sno: '8', segment: 'Future', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target1: '₹710', target2: '₹720', target3: '₹730', stoploss: '₹770', hold: '(15-30days)' },
+        { id: 9, sno: '9', segment: 'Option', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target1: '₹710', target2: '₹720', target3: '₹730', stoploss: '₹770', hold: '(15-30days)' },
+        { id: 10, sno: '10', segment: 'Cash', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target1: '₹710', target2: '₹720', target3: '₹730', stoploss: '₹770', hold: '(15-30days)' },
+        { id: 11, sno: '11', segment: 'Future', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target1: '₹710', target2: '₹720', target3: '₹730', stoploss: '₹770', hold: '(15-30days)' },
+        { id: 12, sno: '12', segment: 'Option', type: 'Short Term', symbol: 'TATAMotors-EQ', price: '₹778', date: '14Nov2024', time: '15:19', target1: '₹710', target2: '₹720', target3: '₹730', stoploss: '₹770', hold: '(15-30days)' },
     ]
 
 
@@ -33,10 +35,36 @@ const Trade = () => {
         { name: 'Entry Price', selector: row => row.price, sortable: true, width: '180px' },
         { name: 'Entry Date', selector: row => row.date, sortable: true, width: '180px' },
         { name: 'Entry Time', selector: row => row.time, sortable: true, width: '180px' },
-        { name: 'Target', selector: row => row.target, sortable: true, width: '180px' },
+        { name: 'Target1', selector: row => row.target1, sortable: true, width: '180px' },
+        { name: 'Target2', selector: row => row.target2, sortable: true, width: '180px' },
+        { name: 'Target3', selector: row => row.target3, sortable: true, width: '180px' },
         { name: 'Stoploss', selector: row => row.stoploss, sortable: true, width: '180px' },
         { name: 'Hold Duration', selector: row => row.hold, sortable: true, width: '180px' },
-        { name: 'Action', selector: row => row.status, sortable: true, width: '180px' },
+        {
+            name: 'Buy/Sell',
+            selector: row => (
+                <div>
+                    <button
+                        className='btn btn-success'
+
+                    >
+                        Buy
+                    </button>
+                </div>
+            ),
+            sortable: true,
+            width: '180px',
+        },
+        {
+            name: 'Action',
+            selector: row => (
+                <div>
+                    <Tooltip placement="top" title="View">
+                        <Eye style={{ marginRight: "10px" }} data-bs-toggle="modal" data-bs-target="#exampleModal" />
+                    </Tooltip>
+                </div>
+            )
+        },
     ]
 
 
@@ -220,7 +248,20 @@ const Trade = () => {
                     </div>
                 </div>
 
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Discription</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos sunt, maxime suscipit ratione facere ab maiores tenetur consequuntur corrupti quod a reprehenderit dignissimos dolorum incidunt natus quidem voluptatem distinctio impedit. Optio, illum natus. Aut et nisi harum autem dolorem animi.
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
                 {/* Data Table */}
 
             </div>
