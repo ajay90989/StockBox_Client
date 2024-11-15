@@ -5440,13 +5440,13 @@ ul li {
 .nav-pills .nav-link {
 	background: 0 0;
 	border: 0;
-	border-radius: 17px !important;
+	border-radius: 30px !important;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
 	/* background: linear-gradient(90deg, rgba(246, 140, 226, 1) 0%, rgba(129, 191, 211, 1) 0%, rgba(43, 23, 83, 1) 0%, rgba(207, 92, 166, 1) 100%); */
-background: #0092e4 !important;
+	background: #0092e4 !important;
 	color: var(--bs-nav-pills-link-active-color);
 
 }
@@ -5799,8 +5799,27 @@ background: #0092e4 !important;
 
 .price-original {
 	/* text-decoration: line-through; */
-	color: #999;
+	color: #2d3de8;
 	font-size: 18px;
+}
+
+.tagmonth {
+	color: #000;
+	font-size: 18px;
+}
+
+.tagbutton {
+	color: #fff;
+	font-size: 18px;
+}
+
+.information {
+
+	font-size: 28px;
+	position: absolute;
+	top: 100px;
+	left: 256px;
+
 }
 
 .features {
@@ -6294,4 +6313,37 @@ a:visited {
 	/* Slightly enlarge the card on hover */
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	/* Add a shadow effect */
+}
+
+.paynow {
+	font-size: 14px !important;
+}
+
+.modal-header {
+	background-color: #0092e4 !important;
+	border-radius: 1rem 1rem 0rem 0rem;
+}
+
+.modal-title {
+	color: #fff;
+}
+
+.modal-content {
+
+	/* border-bottom-right-radius: 66px 66px; */
+
+	/* border: 2px solid #0092e4 !important; */
+
+}
+
+.modal {
+	--bs-border-radius-lg: 1rem 1rem 1rem 1rem !important;
+}
+
+.custom-data-table {
+	/* Hide scrollbar */
+
+	scrollbar-width: thin;
+
+
 }
