@@ -5176,7 +5176,7 @@ label {
 }
 
 .lucide-eye:hover {
-	margin-left: 6px;
+
 	background: #000;
 	border-radius: 70%;
 	color: #FFF;
@@ -5364,8 +5364,8 @@ ul li {
 }
 
 .btnsecond {
-	background-color: #e0e0e0;
-	color: #333;
+	background-color: #0092e4 !important;
+	color: #fff;
 	padding: 10px 20px;
 	border: none;
 	border-radius: 5px;
@@ -5373,9 +5373,17 @@ ul li {
 	flex-grow: 1;
 }
 
+.btnsecond:hover {
+	background: #fff !important;
+	border: 1px solid #0092e4 !important;
+	color: #0092e4 !important;
+
+}
+
 .btnprime {
 	background-color: #2ecc71;
-	color: white;
+	color: #fff !important;
+	font-weight: 600;
 	padding: 10px 20px;
 	border: none;
 	border-radius: 5px;
@@ -5384,8 +5392,9 @@ ul li {
 }
 
 .btnprime:hover {
-	background-color: #5F73E4;
-	color: #fff !important;
+	background: #fff;
+	border: 1px solid #2ecc71 !important;
+	color: #2ecc71 !important;
 }
 
 .picked-badge {
@@ -6366,4 +6375,132 @@ a:visited {
 
 	border-radius: 10px;
 
+}
+
+
+.pricing-card {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card:hover {
+	transform: translateY(-10px) scale(1.02);
+	/* Slightly lift and enlarge the card */
+	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+	/* Increase shadow for a floating effect */
+	background-color: #f9f9f9;
+	/* Optional: Change background on hover */
+}
+
+/* For button group animations */
+.button-group button,
+.button-group a {
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* .button-group button:hover,
+.button-group a:hover {
+	background-color: #007bff;
+
+	color: #fff;
+
+} */
+
+/* Badge hover effect (optional) */
+.badge.bg-primary {
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.badge.bg-primary:hover {
+	background-color: #0056b3;
+	/* Darker blue on hover */
+	color: #fff;
+	/* White text on hover */
+}
+
+.trade-card {
+	background-color: #eef3fd;
+	border-radius: 8px;
+	padding: 15px;
+	margin-bottom: 20px;
+}
+
+.trade-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.trade-time {
+	font-size: 14px;
+	color: #6c757d;
+}
+
+.trade-type {
+	font-size: 14px;
+	background-color: #eef3fd;
+	border: 1px solid #6c757d;
+	border-radius: 12px;
+	padding: 3px 8px;
+	color: #6c757d;
+}
+
+.trade-type1 {
+	font-size: 14px;
+	background-color: #0092e4 !important;
+	border: 1px solid #0092e4;
+	border-radius: 12px;
+	padding: 3px 8px;
+	color: #fff;
+}
+
+.trade-content h3 {
+	margin: 0;
+	font-size: 18px;
+	color: #333;
+}
+
+.trade-content {
+
+	border-radius: 19px;
+	background: #fff;
+	padding: 16px;
+
+}
+
+.trade-price {
+	font-size: 16px;
+	color: #333;
+	margin: 10px 0;
+}
+
+.trade-details p {
+	font-size: 14px;
+	margin: 5px 0;
+	color: #555;
+}
+
+.btn-view-detail {
+	background-color: #0092e4 !important;
+	color: #fff;
+}
+
+.btn-view-detail:hover {
+	border: 1px solid #0092e4 !important;
+	color: #0092e4;
+	background: #fff !important;
+}
+
+.btn-buy {
+	background-color: #28a745;
+	color: #fff;
+}
+
+.btn-buy:hover {
+	border: 1px solid #28a745;
+	color: #28a745;
+	background-color: #fff !important;
 }

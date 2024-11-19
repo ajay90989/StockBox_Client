@@ -5,7 +5,12 @@ import { Eye } from 'lucide-react';
 import { Button, Tooltip } from 'antd';
 
 const Trade = () => {
-    const [selectedPlan, setSelectedPlan] = useState("cash");
+    // const [selectedPlan, setSelectedPlan] = useState("cash");
+
+    // const handleSelectChange = (event) => {
+    //     setSelectedPlan(event.target.value);
+    // };
+    const [selectedPlan, setSelectedPlan] = useState("all");
 
     const handleSelectChange = (event) => {
         setSelectedPlan(event.target.value);
@@ -148,18 +153,19 @@ const Trade = () => {
                             {/* <label htmlFor="planSelect" className="mb-1">
                                 Plans For You
                             </label> */}
-                            <div className="col-lg-12 d-flex">
-                                <div
-                                    className="position-relative search-bar d-lg-block d-none"
-
-                                >
-                                    <input className="form-control px-5" type="search" placeholder="Search" value={searchQuery}
-                                        onChange={handleSearch} />
-                                    <span className="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5">
-                                        <i className="bx bx-search" />
-                                    </span>
+                            <div>
+                                <label htmlFor="planSelect" className="mb-1">
+                                    Plans For You
+                                </label>
+                                <div className="col-lg-4 d-flex">
+                                    <select id="planSelect" className="form-select" onChange={handleSelectChange} value={selectedPlan}>
+                                        <option value="" disabled>Select Plans</option>
+                                        <option value="all">All</option>
+                                        <option value="cash">Cash</option>
+                                        <option value="future">Future</option>
+                                        <option value="option">Option</option>
+                                    </select>
                                 </div>
-
                             </div>
                         </div>
                         <ul className="nav nav-pills mb-3 justify-content-center" role="tablist">
@@ -226,6 +232,671 @@ const Trade = () => {
                                     className="custom-data-table"
 
                                 />
+                                {selectedPlan === "all" && (
+                                    <div className="row">
+                                        <div className="col-md-6">
+
+                                            {/* Card 1 */}
+                                            <div className="trade-card shadow">
+                                                <div className="trade-header">
+                                                    <span className="trade-time">18 Nov, 17:08</span>
+                                                    <span className="trade-time">Future</span>
+                                                    <span className="trade-type">Short Term</span>
+                                                </div>
+                                                <div className="trade-content">
+                                                    <div className="d-flex justify-content-between">
+                                                        <h3>THERMAX-EQ</h3>
+                                                        <span className="trade-type1">Broker Response</span>
+                                                    </div>
+                                                    <p className="trade-price">₹100</p>
+                                                    <div className="trade-details">
+                                                        <div className='row justify-content-center'>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Entry price:</strong> (₹100)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Stoploss:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className='col-md-4'>
+                                                                <p>
+                                                                    <strong>Hold duration:</strong> (15-30 days)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="d-flex justify-content-between mt-3">
+                                                        <button className="btn btn-view-detail">View Detail</button>
+                                                        <button className="btn btn-buy">BUY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6">
+
+                                            {/* Card 1 */}
+                                            <div className="trade-card shadow">
+                                                <div className="trade-header">
+                                                    <span className="trade-time">18 Nov, 17:08</span>
+                                                    <span className="trade-time">Cash</span>
+                                                    <span className="trade-type">Short Term</span>
+                                                </div>
+                                                <div className="trade-content">
+                                                    <div className="d-flex justify-content-between">
+                                                        <h3>THERMAX-EQ</h3>
+                                                        <span className="trade-type1">Broker Response</span>
+                                                    </div>
+                                                    <p className="trade-price">₹100</p>
+                                                    <div className="trade-details">
+                                                        <div className='row justify-content-center'>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Entry price:</strong> (₹100)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Stoploss:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className='col-md-4'>
+                                                                <p>
+                                                                    <strong>Hold duration:</strong> (15-30 days)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="d-flex justify-content-between mt-3">
+                                                        <button className="btn btn-view-detail">View Detail</button>
+                                                        <button className="btn btn-buy">BUY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                )}
+                                {selectedPlan === "cash" && (
+                                    <div className="row">
+                                        <div className="col-md-6">
+
+                                            {/* Card 1 */}
+                                            <div className="trade-card shadow">
+                                                <div className="trade-header">
+                                                    <span className="trade-time">18 Nov, 17:08</span>
+
+                                                    <span className="trade-type">Short Term</span>
+                                                </div>
+                                                <div className="trade-content">
+                                                    <div className="d-flex justify-content-between">
+                                                        <h3>THERMAX-EQ</h3>
+                                                        <span className="trade-type1">Broker Response</span>
+                                                    </div>
+                                                    <p className="trade-price">₹100</p>
+                                                    <div className="trade-details">
+                                                        <div className='row justify-content-center'>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Entry price:</strong> (₹100)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Stoploss:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className='col-md-4'>
+                                                                <p>
+                                                                    <strong>Hold duration:</strong> (15-30 days)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div className="d-flex justify-content-between mt-3">
+                                                    <button className="btn btn-view-detail" data-bs-toggle="modal" data-bs-target="#exampleModal1">View Detail</button>
+                                                    <button className="btn btn-buy" data-bs-toggle="modal" data-bs-target="#exampleModal">BUY</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6">
+
+                                            {/* Card 1 */}
+                                            <div className="trade-card shadow">
+                                                <div className="trade-header">
+                                                    <span className="trade-time">18 Nov, 17:08</span>
+
+                                                    <span className="trade-type">Short Term</span>
+                                                </div>
+                                                <div className="trade-content">
+                                                    <div className="d-flex justify-content-between">
+                                                        <h3>THERMAX-EQ</h3>
+                                                        <span className="trade-type1">Broker Response</span>
+                                                    </div>
+                                                    <p className="trade-price">₹100</p>
+                                                    <div className="trade-details">
+                                                        <div className='row justify-content-center'>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Entry price:</strong> (₹100)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Stoploss:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className='col-md-4'>
+                                                                <p>
+                                                                    <strong>Hold duration:</strong> (15-30 days)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="d-flex justify-content-between mt-3">
+                                                        <button className="btn btn-view-detail">View Detail</button>
+                                                        <button className="btn btn-buy">BUY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                )}
+                                {selectedPlan === "future" && (
+                                    <div className="row">
+                                        <div className="col-md-6">
+
+                                            {/* Card 1 */}
+                                            <div className="trade-card shadow">
+                                                <div className="trade-header">
+                                                    <span className="trade-time">18 Nov, 17:08</span>
+
+                                                    <span className="trade-type">Short Term</span>
+                                                </div>
+                                                <div className="trade-content">
+                                                    <div className="d-flex justify-content-between">
+                                                        <h3>THERMAX-EQ</h3>
+                                                        <span className="trade-type1">Broker Response</span>
+                                                    </div>
+                                                    <p className="trade-price">₹100</p>
+                                                    <div className="trade-details">
+                                                        <div className='row justify-content-center'>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Entry price:</strong> (₹100)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Stoploss:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className='col-md-4'>
+                                                                <p>
+                                                                    <strong>Hold duration:</strong> (15-30 days)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="d-flex justify-content-between mt-3">
+                                                        <button className="btn btn-view-detail">View Detail</button>
+                                                        <button className="btn btn-buy">BUY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6">
+
+                                            {/* Card 1 */}
+                                            <div className="trade-card shadow">
+                                                <div className="trade-header">
+                                                    <span className="trade-time">18 Nov, 17:08</span>
+                                                    <span className="trade-time">Cash</span>
+                                                    <span className="trade-type">Short Term</span>
+                                                </div>
+                                                <div className="trade-content">
+                                                    <div className="d-flex justify-content-between">
+                                                        <h3>THERMAX-EQ</h3>
+                                                        <span className="trade-type1">Broker Response</span>
+                                                    </div>
+                                                    <p className="trade-price">₹100</p>
+                                                    <div className="trade-details">
+                                                        <div className='row justify-content-center'>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Entry price:</strong> (₹100)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Stoploss:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className='col-md-4'>
+                                                                <p>
+                                                                    <strong>Hold duration:</strong> (15-30 days)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="d-flex justify-content-between mt-3">
+                                                        <button className="btn btn-view-detail">View Detail</button>
+                                                        <button className="btn btn-buy">BUY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                )}
+                                {selectedPlan === "option" && (
+                                    <div className="row">
+                                        <div className="col-md-6">
+
+                                            {/* Card 1 */}
+                                            <div className="trade-card shadow">
+                                                <div className="trade-header">
+                                                    <span className="trade-time">18 Nov, 17:08</span>
+
+                                                    <span className="trade-type">Short Term</span>
+                                                </div>
+                                                <div className="trade-content">
+                                                    <div className="d-flex justify-content-between">
+                                                        <h3>THERMAX-EQ</h3>
+                                                        <span className="trade-type1">Broker Response</span>
+                                                    </div>
+                                                    <p className="trade-price">₹100</p>
+                                                    <div className="trade-details">
+                                                        <div className='row justify-content-center'>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Entry price:</strong> (₹100)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Stoploss:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className='col-md-4'>
+                                                                <p>
+                                                                    <strong>Hold duration:</strong> (15-30 days)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="d-flex justify-content-between mt-3">
+                                                        <button className="btn btn-view-detail">View Detail</button>
+                                                        <button className="btn btn-buy">BUY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6">
+
+                                            {/* Card 1 */}
+                                            <div className="trade-card shadow">
+                                                <div className="trade-header">
+                                                    <span className="trade-time">18 Nov, 17:08</span>
+                                                    <span className="trade-time">Cash</span>
+                                                    <span className="trade-type">Short Term</span>
+                                                </div>
+                                                <div className="trade-content">
+                                                    <div className="d-flex justify-content-between">
+                                                        <h3>THERMAX-EQ</h3>
+                                                        <span className="trade-type1">Broker Response</span>
+                                                    </div>
+                                                    <p className="trade-price">₹100</p>
+                                                    <div className="trade-details">
+                                                        <div className='row justify-content-center'>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Entry price:</strong> (₹100)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Stoploss:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className='col-md-4'>
+                                                                <p>
+                                                                    <strong>Hold duration:</strong> (15-30 days)
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                            <div className="col-md-4">
+
+
+                                                                <p>
+                                                                    <strong>Target:</strong> --
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="d-flex justify-content-between mt-3">
+                                                        <button className="btn btn-view-detail">View Detail</button>
+                                                        <button className="btn btn-buy">BUY</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                )}
+                                {/* modal for View detail open */}
+
+                                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Discription</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus nesciunt id aliquam, incidunt, quam tenetur beatae corrupti repudiandae voluptates autem animi provident eum maxime! Necessitatibus eveniet, dignissimos ipsam deserunt quibusdam architecto illum distinctio magnam fuga sapiente reprehenderit cum fugit nemo.
+                                            </div>
+                                            {/* <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div> */}
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* modal for view detail closed */}
+
+                                {/* modal for buy start */}
+                                <div
+                                    className="modal fade"
+                                    id="exampleModal"
+                                    tabIndex={-1}
+                                    aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true"
+                                >
+                                    <div className="modal-dialog">
+                                        <div className="modal-content">
+                                            <div className="modal-header">
+                                                <h5 className="modal-title" id="exampleModalLabel">
+                                                    KYC
+                                                </h5>
+                                                <button
+                                                    type="button"
+                                                    className="btn-close"
+                                                    data-bs-dismiss="modal"
+                                                    aria-label="Close"
+                                                />
+                                            </div>
+                                            <div className="modal-body ">
+
+
+                                                <div className="p-2">
+
+
+                                                    <form className="row g-3">
+                                                        <div className="col-md-12">
+                                                            <label htmlFor="input1" className="form-label">
+                                                                Name
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                id="input1"
+                                                                placeholder="Name"
+                                                            />
+                                                        </div>
+                                                        <div className="col-md-12">
+                                                            <label htmlFor="input4" className="form-label">
+                                                                Email
+                                                            </label>
+                                                            <input
+                                                                type="email"
+                                                                className="form-control"
+                                                                id="input4"
+                                                                placeholder="Email"
+                                                            />
+                                                        </div>
+
+                                                        <div className="col-md-12">
+                                                            <label htmlFor="input3" className="form-label">
+                                                                Phone
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                id="input3"
+                                                                placeholder="Phone"
+                                                            />
+                                                        </div>
+
+                                                        <div className="col-md-12">
+                                                            <label htmlFor="input5" className="form-label">
+                                                                Aadhaar No.
+                                                            </label>
+                                                            <input
+                                                                type="password"
+                                                                className="form-control"
+                                                                id="input5"
+                                                                placeholder="Aadhaar No."
+                                                            />
+                                                        </div>
+                                                        <div className="col-md-12">
+                                                            <label htmlFor="input5" className="form-label">
+                                                                PAN No.
+                                                            </label>
+                                                            <input
+                                                                type="password"
+                                                                className="form-control"
+                                                                id="input5"
+                                                                placeholder="PAN No."
+                                                            />
+                                                        </div>
+
+
+                                                    </form>
+
+                                                </div>
+
+
+
+                                            </div>
+                                            <div className="modal-footer">
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-secondary"
+                                                    data-bs-dismiss="modal"
+                                                >
+                                                    Reset
+                                                </button>
+                                                <button type="button" className="btn btn-primary">
+                                                    Submit
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* modal for buy end */}
 
                             </div>
                             <div className="tab-pane fade" id="primary-pills-profile" role="tabpanel">
@@ -240,6 +911,131 @@ const Trade = () => {
                                     fixedHeaderScrollHeight="400px"
                                     className="custom-data-table"
                                 />
+                                <div className="row">
+                                    <div className="col-md-6">
+
+                                        {/* Card 1 */}
+                                        <div className="trade-card shadow">
+                                            <div className="trade-header">
+                                                <span className="trade-time">18 Nov, 17:08</span>
+                                                <span className="trade-type">Short Term</span>
+                                            </div>
+                                            <div className="trade-content">
+                                                <h3>THERMAX-EQ</h3>
+                                                <p className="trade-price">₹100</p>
+                                                <div className="trade-details">
+                                                    <div className='row justify-content-center'>
+                                                        <div className="col-md-4">
+                                                            <p>
+                                                                <strong>Entry price:</strong> (₹100)
+                                                            </p>
+                                                        </div>
+                                                        <div className="col-md-4">
+                                                            <p>
+                                                                <strong>Stoploss:</strong> --
+                                                            </p>
+                                                        </div>
+
+
+                                                        <div className='col-md-4'>
+                                                            <p>
+                                                                <strong>Hold duration:</strong> (15-30 days)
+                                                            </p>
+                                                        </div>
+                                                        <div className="col-md-4">
+                                                            <p>
+                                                                <strong>Target:</strong> --
+                                                            </p>
+                                                        </div>
+
+
+                                                        <div className="col-md-4">
+
+
+                                                            <p>
+                                                                <strong>Target:</strong> --
+                                                            </p>
+                                                        </div>
+                                                        <div className="col-md-4">
+
+
+                                                            <p>
+                                                                <strong>Target:</strong> --
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="d-flex justify-content-between mt-3">
+                                                    <button className="btn btn-view-detail">View Detail</button>
+                                                    <button className="btn btn-buy">BUY</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6">
+
+                                        {/* Card 1 */}
+                                        <div className="trade-card shadow">
+                                            <div className="trade-header">
+                                                <span className="trade-time">18 Nov, 17:08</span>
+                                                <span className="trade-type">Short Term</span>
+                                            </div>
+                                            <div className="trade-content">
+                                                <h3>THERMAX-EQ</h3>
+                                                <p className="trade-price">₹100</p>
+                                                <div className="trade-details">
+                                                    <div className='row justify-content-center'>
+                                                        <div className="col-md-4">
+                                                            <p>
+                                                                <strong>Entry price:</strong> (₹100)
+                                                            </p>
+                                                        </div>
+                                                        <div className="col-md-4">
+                                                            <p>
+                                                                <strong>Stoploss:</strong> --
+                                                            </p>
+                                                        </div>
+
+
+                                                        <div className='col-md-4'>
+                                                            <p>
+                                                                <strong>Hold duration:</strong> (15-30 days)
+                                                            </p>
+                                                        </div>
+                                                        <div className="col-md-4">
+                                                            <p>
+                                                                <strong>Target:</strong> --
+                                                            </p>
+                                                        </div>
+
+
+                                                        <div className="col-md-4">
+
+
+                                                            <p>
+                                                                <strong>Target:</strong> --
+                                                            </p>
+                                                        </div>
+                                                        <div className="col-md-4">
+
+
+                                                            <p>
+                                                                <strong>Target:</strong> --
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="d-flex justify-content-between mt-3">
+                                                    <button className="btn btn-view-detail">View Detail</button>
+                                                    <button className="btn btn-buy">BUY</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
 
                             </div>
 
