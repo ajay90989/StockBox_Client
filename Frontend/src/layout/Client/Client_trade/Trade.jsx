@@ -220,7 +220,7 @@ const Trade = () => {
                                 id="primary-pills-home"
                                 role="tabpanel"
                             >
-                                <DataTable
+                                {/* <DataTable
 
                                     columns={columns1}
                                     // data={data}
@@ -231,14 +231,14 @@ const Trade = () => {
                                     fixedHeaderScrollHeight="400px"
                                     className="custom-data-table"
 
-                                />
+                                /> */}
                                 {selectedPlan === "all" && (
                                     <div className="row">
                                         <div className="col-md-6">
 
                                             {/* Card 1 */}
                                             <div className="trade-card shadow">
-                                                <div className="trade-header">
+                                                <div className="trade-header d-flex justify-content-between">
                                                     <span className="trade-time">18 Nov, 17:08</span>
                                                     <span className="trade-time">Future</span>
                                                     <span className="trade-type">Short Term</span>
@@ -302,7 +302,7 @@ const Trade = () => {
 
                                             {/* Card 1 */}
                                             <div className="trade-card shadow">
-                                                <div className="trade-header">
+                                                <div className="trade-header d-flex justify-content-between">
                                                     <span className="trade-time">18 Nov, 17:08</span>
                                                     <span className="trade-time">Cash</span>
                                                     <span className="trade-type">Short Term</span>
@@ -367,135 +367,101 @@ const Trade = () => {
                                 )}
                                 {selectedPlan === "cash" && (
                                     <div className="row">
-                                        <div className="col-md-6">
+                                        <div className="col-md-12">
 
                                             {/* Card 1 */}
                                             <div className="trade-card shadow">
-                                                <div className="trade-header">
-                                                    <span className="trade-time">18 Nov, 17:08</span>
 
-                                                    <span className="trade-type">Short Term</span>
-                                                </div>
-                                                <div className="trade-content">
-                                                    <div className="d-flex justify-content-between">
-                                                        <h3>THERMAX-EQ</h3>
-                                                        <span className="trade-type1">Broker Response</span>
-                                                    </div>
-                                                    <p className="trade-price">₹100</p>
-                                                    <div className="trade-details">
-                                                        <div className='row justify-content-center'>
-                                                            <div className="col-md-4">
-                                                                <p>
-                                                                    <strong>Entry price:</strong> (₹100)
-                                                                </p>
+                                                <div className="row">
+                                                    <div className="col-md-2 d-flex align-items-end">
+                                                        <div className="trade-header ">
+                                                            <div>
+                                                                <span className="trade-time tradetime1"><b>18 Nov, 17:08</b></span>
                                                             </div>
-                                                            <div className="col-md-4">
-                                                                <p>
-                                                                    <strong>Stoploss:</strong> --
-                                                                </p>
+                                                            <div className='mb-3'>
+                                                                <span className="trade-type">Short Term</span>
+                                                            </div>
+                                                            <div >
+                                                                <span className="trade-type1">Cash,Future,Option</span>
                                                             </div>
 
 
-                                                            <div className='col-md-4'>
-                                                                <p>
-                                                                    <strong>Hold duration:</strong> (15-30 days)
-                                                                </p>
-                                                            </div>
-                                                            <div className="col-md-4">
-                                                                <p>
-                                                                    <strong>Target:</strong> --
-                                                                </p>
-                                                            </div>
 
-
-                                                            <div className="col-md-4">
-
-
-                                                                <p>
-                                                                    <strong>Target:</strong> --
-                                                                </p>
-                                                            </div>
-                                                            <div className="col-md-4">
-
-
-                                                                <p>
-                                                                    <strong>Target:</strong> --
-                                                                </p>
-                                                            </div>
                                                         </div>
                                                     </div>
-
-                                                </div>
-                                                <div className="d-flex justify-content-between mt-3">
-                                                    <button className="btn btn-view-detail" data-bs-toggle="modal" data-bs-target="#exampleModal1">View Detail</button>
-                                                    <button className="btn btn-buy" data-bs-toggle="modal" data-bs-target="#exampleModal">BUY</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6">
-
-                                            {/* Card 1 */}
-                                            <div className="trade-card shadow">
-                                                <div className="trade-header">
-                                                    <span className="trade-time">18 Nov, 17:08</span>
-
-                                                    <span className="trade-type">Short Term</span>
-                                                </div>
-                                                <div className="trade-content">
-                                                    <div className="d-flex justify-content-between">
-                                                        <h3>THERMAX-EQ</h3>
-                                                        <span className="trade-type1">Broker Response</span>
-                                                    </div>
-                                                    <p className="trade-price">₹100</p>
-                                                    <div className="trade-details">
-                                                        <div className='row justify-content-center'>
-                                                            <div className="col-md-4">
-                                                                <p>
-                                                                    <strong>Entry price:</strong> (₹100)
-                                                                </p>
+                                                    <dv className="col-md-7">
+                                                        <div className="trade-content">
+                                                            <div className="d-flex justify-content-between tradehead">
+                                                                <h3>THERMAX-EQ</h3>
+                                                                <span className="trade-type1 mb-2">open</span>
                                                             </div>
-                                                            <div className="col-md-4">
-                                                                <p>
-                                                                    <strong>Stoploss:</strong> --
-                                                                </p>
+                                                            <p className="trade-price">₹100</p>
+                                                            <div className="trade-details">
+                                                                <div className='row justify-content-center'>
+                                                                    <div className="col-md-6">
+                                                                        <div>
+                                                                            <strong>Entry price:</strong>
+                                                                            <p> (₹100)</p>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div className='col-md-6 d-flex justify-content-end'>
+                                                                        <div>
+                                                                            <strong>Hold duration:</strong>
+                                                                            <p>(15-30 days)</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div>
+                                                                            <strong>Stoploss:</strong>
+                                                                            <p>--</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-md-3 d-flex justify-content-center">
+                                                                        <div>
+                                                                            <strong>Target:</strong>
+                                                                            <p>--</p>
+                                                                        </div>
+
+                                                                    </div>
+
+
+                                                                    <div className="col-md-3 d-flex justify-content-center">
+
+
+                                                                        <div>
+                                                                            <strong>Target:</strong>
+                                                                            <p>--</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3 d-flex justify-content-center">
+                                                                        <div>
+                                                                            <strong>Target:</strong>
+                                                                            <p>--</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
 
+                                                        </div>
+                                                    </dv>
+                                                    <div className="col-md-3 d-flex align-items-center">
+                                                        <div className="mb-3">
+                                                            <button className="btn btn-buy mb-2 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">BUY</button>
+                                                            <button className="btn btn-view-detail mb-2 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal1">View Detail</button>
+                                                            <button className="btn btn-view-detail mb-2 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal1">View Ananlysis</button>
+                                                            <button className="btn btn-view-detail w-100" data-bs-toggle="modal" data-bs-target="#exampleModal1">Broker Response</button>
 
-                                                            <div className='col-md-4'>
-                                                                <p>
-                                                                    <strong>Hold duration:</strong> (15-30 days)
-                                                                </p>
-                                                            </div>
-                                                            <div className="col-md-4">
-                                                                <p>
-                                                                    <strong>Target:</strong> --
-                                                                </p>
-                                                            </div>
-
-
-                                                            <div className="col-md-4">
-
-
-                                                                <p>
-                                                                    <strong>Target:</strong> --
-                                                                </p>
-                                                            </div>
-                                                            <div className="col-md-4">
-
-
-                                                                <p>
-                                                                    <strong>Target:</strong> --
-                                                                </p>
-                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div className="d-flex justify-content-between mt-3">
-                                                        <button className="btn btn-view-detail">View Detail</button>
-                                                        <button className="btn btn-buy">BUY</button>
-                                                    </div>
                                                 </div>
+
+
                                             </div>
                                         </div>
+
 
                                     </div>
 
@@ -506,7 +472,7 @@ const Trade = () => {
 
                                             {/* Card 1 */}
                                             <div className="trade-card shadow">
-                                                <div className="trade-header">
+                                                <div className="trade-header d-flex justify-content-between">
                                                     <span className="trade-time">18 Nov, 17:08</span>
 
                                                     <span className="trade-type">Short Term</span>
@@ -570,9 +536,9 @@ const Trade = () => {
 
                                             {/* Card 1 */}
                                             <div className="trade-card shadow">
-                                                <div className="trade-header">
+                                                <div className="trade-header d-flex justify-content-between">
                                                     <span className="trade-time">18 Nov, 17:08</span>
-                                                    <span className="trade-time">Cash</span>
+                                                    {/* <span className="trade-time">Cash</span> */}
                                                     <span className="trade-type">Short Term</span>
                                                 </div>
                                                 <div className="trade-content">
@@ -639,7 +605,7 @@ const Trade = () => {
 
                                             {/* Card 1 */}
                                             <div className="trade-card shadow">
-                                                <div className="trade-header">
+                                                <div className="trade-header d-flex justify-content-between">
                                                     <span className="trade-time">18 Nov, 17:08</span>
 
                                                     <span className="trade-type">Short Term</span>
@@ -703,7 +669,7 @@ const Trade = () => {
 
                                             {/* Card 1 */}
                                             <div className="trade-card shadow">
-                                                <div className="trade-header">
+                                                <div className="trade-header d-flex justify-content-between">
                                                     <span className="trade-time">18 Nov, 17:08</span>
                                                     <span className="trade-time">Cash</span>
                                                     <span className="trade-type">Short Term</span>
@@ -900,7 +866,7 @@ const Trade = () => {
 
                             </div>
                             <div className="tab-pane fade" id="primary-pills-profile" role="tabpanel">
-                                <DataTable
+                                {/* <DataTable
 
                                     columns={columns1}
                                     // data={data}
@@ -910,13 +876,13 @@ const Trade = () => {
                                     fixedHeader
                                     fixedHeaderScrollHeight="400px"
                                     className="custom-data-table"
-                                />
+                                /> */}
                                 <div className="row">
                                     <div className="col-md-6">
 
                                         {/* Card 1 */}
                                         <div className="trade-card shadow">
-                                            <div className="trade-header">
+                                            <div className="trade-header d-flex justify-content-between">
                                                 <span className="trade-time">18 Nov, 17:08</span>
                                                 <span className="trade-type">Short Term</span>
                                             </div>
@@ -976,7 +942,7 @@ const Trade = () => {
 
                                         {/* Card 1 */}
                                         <div className="trade-card shadow">
-                                            <div className="trade-header">
+                                            <div className="trade-header d-flex justify-content-between">
                                                 <span className="trade-time">18 Nov, 17:08</span>
                                                 <span className="trade-type">Short Term</span>
                                             </div>

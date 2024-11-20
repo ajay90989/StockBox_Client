@@ -90,7 +90,7 @@ const Sidebar = ({ onToggleClick }) => {
                     </li>
 
                     <li>
-                      <Link to="/staff/signal">
+                      <Link to="/client/subscription">
                         <div className="parent-icon">
                           <i className="fadeIn animated bx bx-label" />
                         </div>
@@ -101,7 +101,7 @@ const Sidebar = ({ onToggleClick }) => {
 
 
                     <li>
-                      <Link to="/staff/faq">
+                      <Link to="/client/coupon">
                         <div className="parent-icon">
                           <i className="lni lni-offer" />
                         </div>
@@ -110,7 +110,7 @@ const Sidebar = ({ onToggleClick }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/staff/faq">
+                      <Link to="/client/faq">
                         <div className="parent-icon">
                           <i className="bx bx-help-circle" />
                         </div>

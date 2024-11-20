@@ -6428,9 +6428,7 @@ a:visited {
 }
 
 .trade-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+
 	margin-bottom: 15px;
 }
 
@@ -6497,6 +6495,8 @@ a:visited {
 .btn-buy {
 	background-color: #28a745;
 	color: #fff;
+
+
 }
 
 .btn-buy:hover {
@@ -6504,3 +6504,161 @@ a:visited {
 	color: #28a745;
 	background-color: #fff !important;
 }
+
+.tradetime1 {
+	position: relative;
+	top: -114px;
+}
+
+.tradehead {
+	border-bottom: 1px solid #24292E;
+}
+
+
+
+
+.coupon {
+	width: 400px;
+	height: 200px;
+	border-radius: 10px;
+	overflow: hidden;
+	margin: auto;
+	filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5));
+	display: flex;
+	align-items: stretch;
+	position: relative;
+	text-transform: uppercase;
+}
+
+.coupon::before,
+.coupon::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 50%;
+	height: 100%;
+	z-index: -1;
+}
+
+.coupon::before {
+	left: 0;
+	background-image: radial-gradient(circle at 0 50%, transparent 25px, #f7fefb 26px);
+}
+
+.coupon::after {
+	right: 0;
+	background-image: radial-gradient(circle at 100% 50%, transparent 25px, #00a3ffe6 26px);
+}
+
+.coupon>div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.left {
+	width: 20%;
+	border-right: 2px dashed rgba(0, 0, 0, 0.13);
+}
+
+.left div {
+	transform: rotate(-90deg);
+	white-space: nowrap;
+	font-weight: bold;
+	color: #0092e4 !important;
+}
+
+.center {
+	flex-grow: 1;
+	text-align: center;
+}
+
+.right {
+	width: 120px;
+	background-image: radial-gradient(circle at 100% 50%,
+			transparent 25px,
+			#fff 26px);
+}
+
+.right div {
+	font-family: "Libre Barcode 128 Text", cursive;
+	font-size: 1.5rem;
+	font-weight: 400;
+	transform: rotate(-90deg);
+	color: #0092e4 !important;
+}
+
+.center h2 {
+	background: #000;
+	color: #fff;
+	padding: 0 10px;
+	font-size: 2.15rem;
+	white-space: nowrap;
+}
+
+.center h3 {
+	font-size: 2.15rem;
+}
+
+.center small {
+	font-size: 0.625rem;
+	font-weight: 600;
+	letter-spacing: 2px;
+}
+
+@media screen and (max-width:500px) {
+	.coupon {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	.left div {
+		transform: rotate(0deg);
+	}
+
+	.right div {
+		transform: rotate(0deg);
+
+	}
+}
+
+.headingfont {
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.badgespan {
+	font-size: 13px;
+}
+
+
+
+.accordion-button:not(.collapsed),
+.accordion-button:focus {
+	outline: none;
+	border-color: transparent;
+	box-shadow: none;
+	background-color: transparent;
+	width: 100%;
+	/* Full width dene ke liye */
+	display: block;
+	/* Ensure block-level element */
+	text-align: left;
+	/* Text ko align karne ke liye */
+}
+
+/* .accordion-button::after {
+	width: 11px;
+	height: 11px;
+	border-radius: 100%;
+	background-color: var(--bs-danger);
+	background-image: none !important;
+	margin-left: 0 !important;
+	
+} */
+
+/* .accordion-button.collapsed::after {
+	margin-left: 11px;
+	margin-top: 0px;
+	background-color: var(--bs-gray-300);
+} */

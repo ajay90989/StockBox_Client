@@ -8,6 +8,9 @@ import Footer from '../layout/Client/Footer';
 import Profiles from '../layout/Client/Profile/Profiles';
 import Service from '../layout/Client_service/Service';
 import Trade from '../layout/Client/Client_trade/Trade';
+import Coupon from '../layout/Client/Client_coupon/Coupon';
+import Subscription from '../layout/Client/Client_subscription/Subscription';
+import Faq from '../layout/Client/Client_faq/Faq';
 
 
 
@@ -62,7 +65,10 @@ function Client() {
                     <Route path="/profiles" element={<Profiles />} />
                     <Route path="/service" element={<Service />} />
                     <Route path="/trade" element={<Trade />} />
-                
+                    <Route path="/coupon" element={<Coupon />} />
+                    <Route path="/subscription" element={<Subscription />} />
+                    <Route path="/faq" element={<Faq />} />
+                    
             
                 </Routes>
             </div>
