@@ -11,6 +11,9 @@ import Trade from '../layout/Client/Client_trade/Trade';
 import Coupon from '../layout/Client/Client_coupon/Coupon';
 import Subscription from '../layout/Client/Client_subscription/Subscription';
 import Faq from '../layout/Client/Client_faq/Faq';
+import Privacy from '../layout/Client/Client_privacy/Privacy';
+import Terms from '../layout/Client/Client_condition/Terms';
+import Demat from '../layout/Client/Client_demat/Demat';
 
 
 
@@ -68,8 +71,11 @@ function Client() {
                     <Route path="/coupon" element={<Coupon />} />
                     <Route path="/subscription" element={<Subscription />} />
                     <Route path="/faq" element={<Faq />} />
-                    
-            
+                    <Route path="/privacy" element={<Privacy />} />
+                    <Route path="/terms" element={<Terms />} />
+                    <Route path="/demat" element={<Demat />} />
+
+
                 </Routes>
             </div>
             <Footer />
