@@ -12,20 +12,7 @@ const Header = () => {
               <div className="mobile-toggle-menu">
                 <i className="bx bx-menu" />
               </div>
-              <div
-                className="position-relative search-bar d-lg-block d-none"
-                data-bs-toggle="modal"
-                data-bs-target="#SearchModal"
-              >
-                <input
-                  className="form-control px-5"
-                  type="search"
-                  placeholder="Search"
-                />
-                <span className="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5">
-                  <i className="bx bx-search" />
-                </span>
-              </div>
+
               <div className="top-menu ms-auto">
                 <ul className="navbar-nav align-items-center gap-1">
                   <li
@@ -49,6 +36,7 @@ const Header = () => {
 
 
                   <li>
+
                     <div className="form-check form-switch form-check-dark" style={{ margin: "inherit", fontSize: "21px" }}>
 
                       <input

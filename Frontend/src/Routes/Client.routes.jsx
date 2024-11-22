@@ -14,6 +14,9 @@ import Faq from '../layout/Client/Client_faq/Faq';
 import Privacy from '../layout/Client/Client_privacy/Privacy';
 import Terms from '../layout/Client/Client_condition/Terms';
 import Demat from '../layout/Client/Client_demat/Demat';
+import Signal from '../layout/Client/Client_signal/Signal';
+import Browse from '../layout/Client/Client_browse/Browse';
+import Refer from '../layout/Client/Client_refer/Refer';
 
 
 
@@ -74,6 +77,9 @@ function Client() {
                     <Route path="/privacy" element={<Privacy />} />
                     <Route path="/terms" element={<Terms />} />
                     <Route path="/demat" element={<Demat />} />
+                    <Route path="/signal" element={<Signal />} />
+                    <Route path="/browse" element={<Browse />} />
+                    <Route path="/refer" element={<Refer />} />
 
 
                 </Routes>

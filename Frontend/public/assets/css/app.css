@@ -4583,7 +4583,7 @@ input::placeholder {
 
 .search-bar {
 
-	width: 30%;
+	width: 100%;
 
 	cursor: pointer;
 
@@ -6218,7 +6218,7 @@ ul li {
 	}
 }
 
-.container {
+/* .container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -6229,7 +6229,7 @@ ul li {
 	overflow: hidden;
 	opacity: 0;
 	animation: opacity 1s 12s 1 forwards;
-}
+} */
 
 .icons {
 	display: flex;
@@ -6448,8 +6448,8 @@ a:visited {
 
 .trade-type1 {
 	font-size: 14px;
-	background-color: #0092e4 !important;
-	border: 1px solid #0092e4;
+	background-color: #28A745 !important;
+	border: 1px solid #28A745;
 	border-radius: 12px;
 	padding: 3px 8px;
 	color: #fff;
@@ -6640,11 +6640,9 @@ a:visited {
 	box-shadow: none;
 	background-color: transparent;
 	width: 100%;
-	/* Full width dene ke liye */
 	display: block;
-	/* Ensure block-level element */
 	text-align: left;
-	/* Text ko align karne ke liye */
+
 }
 
 /* .accordion-button::after {

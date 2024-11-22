@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom'
 
 const Sidebar = ({ onToggleClick }) => {
 
+  const [activeLink, setActiveLink] = useState(''); // Active link state
 
+  // Link click handler
+  const handleLinkClick = (link) => {
+    setActiveLink(link); // Active state ko sirf link ke click se update karo
+  };
   return (
     <div>
       <div data-simplebar="init">
@@ -37,7 +42,10 @@ const Sidebar = ({ onToggleClick }) => {
                   <ul className="metismenu mm-show" id="menu">
                     <li>
                       <Link
-                        to={'/client/dashboard'}
+                        to="/client/dashboard"
+                        onClick={() => handleLinkClick('/client/dashboard')}
+                        className={activeLink === '/client/dashboard' ? 'active' : ''}
+
                       >
                         <div className="parent-icon">
                           <i className="bx bx-home-alt" />
@@ -98,6 +106,25 @@ const Sidebar = ({ onToggleClick }) => {
                         </div>
                       </Link>
                     </li>
+                    <li>
+                      <Link to="/client/signal">
+                        <div className="parent-icon">
+                          <i className="fadeIn animated bx bx-wifi" />
+                        </div>
+                        <div className="menu-title">Signal
+                        </div>
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link to="/client/browse">
+                        <div className="parent-icon">
+                          <i className="fadeIn animated bx bx-aperture" />
+                        </div>
+                        <div className="menu-title">Browse
+                        </div>
+                      </Link>
+                    </li>
 
 
                     <li>
@@ -109,6 +136,16 @@ const Sidebar = ({ onToggleClick }) => {
                         </div>
                       </Link>
                     </li>
+                    <li>
+                      <Link to="/client/refer">
+                        <div className="parent-icon">
+                          <i className="fadeIn animated bx bx-purchase-tag" />
+                        </div>
+                        <div className="menu-title">Refer & Earn
+                        </div>
+                      </Link>
+                    </li>
+
                     <li>
                       <Link to="/client/faq">
                         <div className="parent-icon">
