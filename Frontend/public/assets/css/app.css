@@ -6660,3 +6660,10 @@ a:visited {
 	margin-top: 0px;
 	background-color: var(--bs-gray-300);
 } */
+
+.views {
+	border: 1px solid #0092e4;
+	padding: 5px;
+	border-radius: 20px;
+	color: #0092e4 !important ;
+}

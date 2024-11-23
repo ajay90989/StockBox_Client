@@ -17,6 +17,8 @@ import Demat from '../layout/Client/Client_demat/Demat';
 import Signal from '../layout/Client/Client_signal/Signal';
 import Browse from '../layout/Client/Client_browse/Browse';
 import Refer from '../layout/Client/Client_refer/Refer';
+import News from '../layout/Client/Client_news/News';
+import Blogs from '../layout/Client/Client_blogs/Blogs';
 
 
 
@@ -80,6 +82,8 @@ function Client() {
                     <Route path="/signal" element={<Signal />} />
                     <Route path="/browse" element={<Browse />} />
                     <Route path="/refer" element={<Refer />} />
+                    <Route path="/news" element={<News />} />
+                    <Route path="/blogs" element={<Blogs />} />
 
 
                 </Routes>
