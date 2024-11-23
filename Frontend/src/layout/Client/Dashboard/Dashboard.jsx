@@ -49,7 +49,7 @@ const Dashbord = () => {
 
     const columns = [
         {
-            name: 'S.No',
+            name: 'S.No ',
             selector: (row, index) => index + 1,
             sortable: false,
             width: '100px',
