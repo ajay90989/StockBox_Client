@@ -19,6 +19,7 @@ import Browse from '../layout/Client/Client_browse/Browse';
 import Refer from '../layout/Client/Client_refer/Refer';
 import News from '../layout/Client/Client_news/News';
 import Blogs from '../layout/Client/Client_blogs/Blogs';
+import SubscribeService from '../layout/Client_service/SubscribeService';
 
 
 
@@ -84,6 +85,7 @@ function Client() {
                     <Route path="/refer" element={<Refer />} />
                     <Route path="/news" element={<News />} />
                     <Route path="/blogs" element={<Blogs />} />
+                    <Route path="/subscribeservice" element={<SubscribeService />} />
 
 
                 </Routes>

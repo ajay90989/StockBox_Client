@@ -92,7 +92,7 @@ const Login = () => {
                 <div className="container-fluid ">
                     <div className="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
                         <div className="col mx-auto">
-                            <div className="card mb-0">
+                            <div className="card mb-0 my-shdo">
                                 <div className="card-body">
                                     <div className="p-4">
                                         <div className="mb-3 text-center">
@@ -165,7 +165,7 @@ const Login = () => {
 
                                                 <div className="col-12">
                                                     <div className="d-grid">
-                                                        <button type="submit" className="btn btn-primary">
+                                                        <button type="submit" className="btn btn-primary my-btn">
                                                             Sign in
                                                         </button>
                                                     </div>
@@ -183,9 +183,15 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
+
+
+
+                    
                 </div>
             </div>
         </div>
+
+
     );
 }
 

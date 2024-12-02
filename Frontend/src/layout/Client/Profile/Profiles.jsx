@@ -83,7 +83,7 @@ const Profiles = () => {
                             <div className="col-lg-8">
                                 <div className="card">
                                     <div className="card-body">
-                                        <div className="row mb-3">
+                                        <div className="row mb-3 align-items-center">
                                             <div className="col-sm-3">
                                                 <h6 className="mb-0">Full Name</h6>
                                             </div>
@@ -95,7 +95,7 @@ const Profiles = () => {
                                                 />
                                             </div>
                                         </div>
-                                        <div className="row mb-3">
+                                        <div className="row mb-3 align-items-center">
                                             <div className="col-sm-3">
                                                 <h6 className="mb-0">Email</h6>
                                             </div>
@@ -107,7 +107,7 @@ const Profiles = () => {
                                                 />
                                             </div>
                                         </div>
-                                        <div className="row mb-3">
+                                        <div className="row mb-3 align-items-center">
                                             <div className="col-sm-3">
                                                 <h6 className="mb-0">Phone</h6>
                                             </div>
@@ -120,7 +120,7 @@ const Profiles = () => {
                                             </div>
                                         </div>
 
-                                        <div className="row mb-3">
+                                        <div className="row mb-3 align-items-center">
                                             <div className="col-sm-3">
                                                 <h6 className="mb-0">Address</h6>
                                             </div>
@@ -128,8 +128,7 @@ const Profiles = () => {
                                                 <input
                                                     type="text"
                                                     className="form-control"
-                                                    defaultValue="Bay Area, San Francisco, CA"
-                                                />
+                                                    defaultValue="Bay Area, San Francisco, CA"/>
                                             </div>
                                         </div>
                                         <div className="row">

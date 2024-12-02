@@ -373,10 +373,12 @@ const Trade = () => {
                                             <div className="trade-card shadow">
 
                                                 <div className="row">
-                                                    <div className="col-md-2 d-flex align-items-end">
+                                                    <div className="col-md-2 d-flex align-items-center">
                                                         <div className="trade-header ">
                                                             <div>
-                                                                <span className="trade-time tradetime1"><b>18 Nov, 17:08</b></span>
+                                                            <span className="trade-time tradetime1"><b>18 Nov 2024</b>
+                                                                <p>17:08:20</p>
+                                                                </span>
                                                             </div>
                                                             <div className='mb-3'>
                                                                 <span className="trade-type">Short Term</span>
@@ -391,11 +393,11 @@ const Trade = () => {
                                                     </div>
                                                     <dv className="col-md-7">
                                                         <div className="trade-content">
-                                                            <div className="d-flex justify-content-between tradehead">
+                                                            <div className="d-flex justify-content-between tradehead mb-3">
                                                                 <h3>THERMAX-EQ</h3>
                                                                 <span className="trade-type1 mb-2">open</span>
                                                             </div>
-                                                            <p className="trade-price">₹100</p>
+                                                           
                                                             <div className="trade-details">
                                                                 <div className='row justify-content-center'>
                                                                     <div className="col-md-6">
@@ -448,7 +450,101 @@ const Trade = () => {
                                                         </div>
                                                     </dv>
                                                     <div className="col-md-3 d-flex align-items-center">
-                                                        <div className="mb-3">
+                                                        <div className="">
+                                                            <button className="btn btn-buy mb-2 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">BUY</button>
+                                                            <button className="btn btn-view-detail mb-2 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal1">View Detail</button>
+                                                            <button className="btn btn-view-detail mb-2 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal1">View Ananlysis</button>
+                                                            <button className="btn btn-view-detail w-100" data-bs-toggle="modal" data-bs-target="#exampleModal1">Broker Response</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+
+                                            <div className="trade-card shadow">
+
+                                                <div className="row">
+                                                    <div className="col-md-2 d-flex align-items-center">
+                                                        <div className="trade-header ">
+                                                            <div>
+                                                                <span className="trade-time tradetime1"><b>18 Nov 2024</b>
+                                                                <p>17:08:20</p>
+                                                                </span>
+                                                            </div>
+                                                            <div className='mb-3'>
+                                                                <span className="trade-type">Short Term</span>
+                                                            </div>
+                                                            <div >
+                                                                <span className="trade-type1">Cash,Future,Option</span>
+                                                            </div>
+
+
+
+                                                        </div>
+                                                    </div>
+                                                    <dv className="col-md-7">
+                                                        <div className="trade-content">
+                                                            <div className="d-flex justify-content-between tradehead mb-3">
+                                                                <h3>THERMAX-EQ</h3>
+                                                                <span className="trade-type1 mb-2">open</span>
+                                                            </div>
+                                                            
+                                                            <div className="trade-details">
+                                                                <div className='row justify-content-center'>
+                                                                    <div className="col-md-6">
+                                                                        <div>
+                                                                            <strong>Entry price:</strong>
+                                                                            <p> (₹100)</p>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div className='col-md-6 d-flex justify-content-end'>
+                                                                        <div>
+                                                                            <strong>Hold duration:</strong>
+                                                                            <p>(15-30 days)</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div>
+                                                                            <strong>Stoploss:</strong>
+                                                                            <p>--</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-md-3 d-flex justify-content-center">
+                                                                        <div>
+                                                                            <strong>Target:</strong>
+                                                                            <p>--</p>
+                                                                        </div>
+
+                                                                    </div>
+
+
+                                                                    <div className="col-md-3 d-flex justify-content-center">
+
+
+                                                                        <div>
+                                                                            <strong>Target:</strong>
+                                                                            <p>--</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3 d-flex justify-content-center">
+                                                                        <div>
+                                                                            <strong>Target:</strong>
+                                                                            <p>--</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </dv>
+                                                    <div className="col-md-3 d-flex align-items-center">
+                                                        <div className="">
                                                             <button className="btn btn-buy mb-2 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">BUY</button>
                                                             <button className="btn btn-view-detail mb-2 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal1">View Detail</button>
                                                             <button className="btn btn-view-detail mb-2 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal1">View Ananlysis</button>
