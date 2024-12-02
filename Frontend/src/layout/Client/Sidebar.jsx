@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom'
 
 const Sidebar = ({ onToggleClick }) => {
 
+  const [activeLink, setActiveLink] = useState(''); // Active link state
 
+  // Link click handler
+  const handleLinkClick = (link) => {
+    setActiveLink(link); // Active state ko sirf link ke click se update karo
+  };
   return (
     <div>
       <div data-simplebar="init">
@@ -37,7 +42,10 @@ const Sidebar = ({ onToggleClick }) => {
                   <ul className="metismenu mm-show" id="menu">
                     <li>
                       <Link
-                        to={'/admin/dashboard'}
+                        to="/client/dashboard"
+                        onClick={() => handleLinkClick('/client/dashboard')}
+                        className={activeLink === '/client/dashboard' ? 'active' : ''}
+
                       >
                         <div className="parent-icon">
                           <i className="bx bx-home-alt" />
@@ -46,97 +54,146 @@ const Sidebar = ({ onToggleClick }) => {
                       </Link>
 
                     </li>
-
-
                     <li>
-                      <Link to={'/staff/client'}>
+                      <Link to="/client/service">
                         <div className="parent-icon">
-                          <i className="bx bx-user" />
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={24}
+                            height={24}
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="feather feather-tool text-white"
+                          >
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                          </svg>
+
                         </div>
-                        <div className="menu-title">Client </div>
+                        <div className="menu-title">Services
+                        </div>
                       </Link>
                     </li>
-                   
 
-
-                    {/* <li>
-                      <Link to="/admin/service">
-                        <div className="parent-icon">
-                          <i className="bx bx-cog" />
-                        </div>
-                        <div className="menu-title">Services</div>
-                      </Link>
-                    </li> */}
 
                     <li>
-                      <Link to="/staff/signal">
+                      <Link to={'/client/trade'}>
                         <div className="parent-icon">
-                          <i className="bx bx-wifi-2" />
+                          <i className="fadeIn animated bx bx-bar-chart-alt" />
+                        </div>
+                        <div className="menu-title">Trades</div>
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link to={'/client/demat'}>
+                        <div className="parent-icon">
+                          <i className="fadeIn animated bx bx-credit-card-front" />
+                        </div>
+                        <div className="menu-title">Demat</div>
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link to="/client/subscription">
+                        <div className="parent-icon">
+                          <i className="fadeIn animated bx bx-label" />
+                        </div>
+                        <div className="menu-title">Subscription
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/client/signal">
+                        <div className="parent-icon">
+                          <i className="fadeIn animated bx bx-wifi" />
                         </div>
                         <div className="menu-title">Signal
                         </div>
                       </Link>
                     </li>
 
-                    {/* <li>
-                      <Link to="/staff/basket">
-                        <div className="parent-icon">
-                          <i className="bx bx-basket" />
-                        </div>
-                        <div className="menu-title">Basket</div>
-                      </Link>
-                    </li> */}
-                    {/* <li>
-                      <Link to="/staff/paymenthistory">
-                        <div className="parent-icon">
-                          <i className="bx bx-credit-card" />
-                        </div>
-                        <div className="menu-title">Payment History
-                        </div>
-                      </Link>
-                    </li> */}
-
-                    {/* <li>
-                      <Link to="/admin/refer">
-                        <div className="parent-icon">
-                          <i className="bx bxl-redux" />
-                        </div>
-                        <div className="menu-title">Refer & Earn</div>
-                      </Link>
-                    </li> */}
-
-                    {/* <li>
-                      <Link to="/admin/kyc">
-                        <div className="parent-icon">
-                          <i className="bx bx-edit-alt" />
-                        </div>
-                        <div className="menu-title">Kyc & Agreement
-                        </div>
-                      </Link>
-                    </li> */}
-
-                    
-                    {/* <li>
-                      <Link to="/admin/permision">
-                        <div className="parent-icon">
-                          <i className="bx bxs-coupon" />
-                        </div>
-                        <div className="menu-title">Permision
-                        </div>
-                      </Link>
-                    </li> */}
                     <li>
-                      <Link to="/staff/faq">
+                      <Link to="/client/browse">
+                        <div className="parent-icon">
+                          <i className="fadeIn animated bx bx-aperture" />
+                        </div>
+                        <div className="menu-title">Browse
+                        </div>
+                      </Link>
+                    </li>
+
+
+                    <li>
+                      <Link to="/client/coupon">
+                        <div className="parent-icon">
+                          <i className="lni lni-offer" />
+                        </div>
+                        <div className="menu-title">Coupons
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/client/refer">
+                        <div className="parent-icon">
+                          <i className="fadeIn animated bx bx-purchase-tag" />
+                        </div>
+                        <div className="menu-title">Refer & Earn
+                        </div>
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link to="/client/faq">
+                        <div className="parent-icon">
+                          <i className="bx bx-help-circle" />
+                        </div>
+                        <div className="menu-title">Faq's
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/client/privacy">
                         <div className="parent-icon">
                           <i className="bx bxs-chevron-right" />
                         </div>
-                        <div className="menu-title">FAQ
+                        <div className="menu-title">Privacy Policy
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/client/terms">
+                        <div className="parent-icon">
+                          <i className="fadeIn animated bx bx-file" />
+                        </div>
+                        <div className="menu-title">Terms & Condition
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/staff/faq">
+                        <div className="parent-icon">
+                          <i className="bx bx-help-circle" />
+                        </div>
+                        <div className="menu-title">Help Desk
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/staff/faq">
+                        <div className="parent-icon">
+                          <i className="fadeIn animated bx bx-message-dots" />
+                        </div>
+                        <div className="menu-title">Broadcasts
                         </div>
                       </Link>
                     </li>
 
                   </ul>
-                 
+
                 </div>
               </div>
             </div>

@@ -57,7 +57,7 @@ const Register = () => {
                                                             placeholder="example@user.com"
                                                         />
                                                     </div>
-                                                    <div className="col-6">
+                                                    <div className="col-12">
                                                         <label htmlFor="inputChoosePassword" className="form-label">
                                                             Password
                                                         </label>
@@ -77,7 +77,7 @@ const Register = () => {
                                                             </a>
                                                         </div>
                                                     </div>
-                                                    <div className="col-6">
+                                                    <div className="col-12">
                                                         <label htmlFor="inputConfirmPassword" className="form-label">
                                                             Confirm Password
                                                         </label>
@@ -100,7 +100,7 @@ const Register = () => {
 
                                                     <div className="col-12">
                                                         <div className="d-grid">
-                                                            <button type="submit" className="btn btn-primary">
+                                                            <button type="submit" className="btn btn-primary my-btn">
                                                                 Sign up
                                                             </button>
                                                         </div>

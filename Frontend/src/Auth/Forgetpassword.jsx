@@ -143,7 +143,7 @@ const Forgetpassword = () => {
                                                 </div>
 
                                                 <div className="d-grid gap-2 col-md-12">
-                                                    <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+                                                    <button type="submit" className="btn btn-primary my-btn" disabled={isSubmitting}>
                                                         {isSubmitting ? 'Sending...' : 'Send'}
                                                     </button>
                                                     <Link to="/admin/login" className="btn btn-light">

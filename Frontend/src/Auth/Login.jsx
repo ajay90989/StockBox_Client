@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login_Api } from "../Services/Apis"
 import { Link } from 'react-router-dom';
@@ -8,10 +8,13 @@ import Swal from 'sweetalert2';
 const Login = () => {
 
 
+
+
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+
 
 
     const loginpageOpen = async (e) => {
@@ -36,7 +39,12 @@ const Login = () => {
                     localStorage.setItem("id", login_data.data.data.id);
                     localStorage.setItem("Role", login_data.data.data.Role);
                     localStorage.setItem("FullName", login_data.data.data.FullName);
-                    navigate("/client/dashboard");
+
+                    navigate("/welcome");
+                    setTimeout(() => {
+                        navigate("/client/dashboard");
+                    }, 10000);
+
                 });
             } else {
                 Swal.fire({
@@ -58,6 +66,8 @@ const Login = () => {
         }
     };
 
+
+
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -75,13 +85,14 @@ const Login = () => {
 
 
 
+
     return (
         <div className='bg-login'>
             <div className="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
                 <div className="container-fluid ">
                     <div className="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
                         <div className="col mx-auto">
-                            <div className="card mb-0">
+                            <div className="card mb-0 my-shdo">
                                 <div className="card-body">
                                     <div className="p-4">
                                         <div className="mb-3 text-center">
@@ -145,7 +156,7 @@ const Login = () => {
                                                     </div>
                                                 </div>
                                                 <div className="col-md-6 text-end">
-                                        
+
                                                     <p className="mb-0">
 
                                                         <Link to="/forget">Forgot Password?</Link>
@@ -154,17 +165,17 @@ const Login = () => {
 
                                                 <div className="col-12">
                                                     <div className="d-grid">
-                                                        <button type="submit" className="btn btn-primary">
+                                                        <button type="submit" className="btn btn-primary my-btn">
                                                             Sign in
                                                         </button>
                                                     </div>
                                                 </div>
-                                                
+
                                             </form>
                                             {error && <div className="alert alert-danger mt-3">{error}</div>}
                                         </div>
                                         <div className="login-separater text-center mb-5">
-                                    
+
                                         </div>
 
                                     </div>
@@ -172,9 +183,15 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
+
+
+
+                    
                 </div>
             </div>
         </div>
+
+
     );
 }
 

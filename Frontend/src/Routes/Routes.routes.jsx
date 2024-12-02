@@ -5,6 +5,7 @@ import Login from '../Auth/Login';
 import Register from '../Auth/Register';
 import Client from './Client.routes';
 import Forgetpassword from '../Auth/Forgetpassword';
+import Welcome from '../Auth/Welcome';
 
 
 
@@ -70,6 +71,7 @@ const Routing = () => {
             <Route path="/client/*" element={<Client /> } />
 
             <Route path="/login" element={<Login />} />
+            <Route path="/welcome" element={<Welcome />} />
             <Route path="/register" element={<Register />} />
 
             <Route path="/forget" element={<Forgetpassword/>} />

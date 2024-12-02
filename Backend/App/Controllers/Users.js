@@ -61,7 +61,7 @@ class Users {
 
       await result.save();
 
-     // console.log("result", result);
+      // console.log("result", result);
       return res.json({
         status: true,
         message: "User added successfully",
@@ -97,7 +97,7 @@ class Users {
   }
 
 
-  
+
   async activeUser(req, res) {
 
     try {
@@ -430,7 +430,7 @@ class Users {
   async forgotPassword(req, res) {
 
     try {
-     
+
       const { Email } = req.body;
 
       if (!Email) {
@@ -447,7 +447,7 @@ class Users {
           message: "User with this email does not exist",
         });
       }
-     
+
       // Generate a reset token
       const resetToken = crypto.randomBytes(20).toString('hex');
 
@@ -463,44 +463,44 @@ class Users {
       }
 
 
-      
+
       const mailtemplate = await Mailtemplate_Modal.findOne({ mail_type: 'staff_reset_password' }); // Use findOne if you expect a single document
       if (!mailtemplate || !mailtemplate.mail_body) {
-          throw new Error('Mail template not found');
+        throw new Error('Mail template not found');
       }
-     
+
       const templatePath = path.join(__dirname, '../../template', 'mailtemplate.html');
-      
-      
+
+
       fs.readFile(templatePath, 'utf8', async (err, htmlTemplate) => {
         if (err) {
-            console.error('Error reading HTML template:', err);
-            return;
+          console.error('Error reading HTML template:', err);
+          return;
         }
-        const url =`http://${req.headers.host}/reset-password/${resetToken}`;
-        
-        const logo =`http://${req.headers.host}/uploads/basicsetting/${settings.logo}`;
+        const url = `http://${req.headers.host}/reset-password/${resetToken}`;
+
+        const logo = `http://${req.headers.host}/uploads/basicsetting/${settings.logo}`;
 
 
         const finalMailBody = mailtemplate.mail_body.replace('{url}', url);
         // Replace placeholders with actual values
         const finalHtml = htmlTemplate
-            .replace(/{{company_name}}/g, settings.website_title)
-            .replace(/{{body}}/g, finalMailBody)
-            .replace(/{{logo}}/g, logo)
-            .replace(/{{resetToken}}/g, resetToken);
-    
+          .replace(/{{company_name}}/g, settings.website_title)
+          .replace(/{{body}}/g, finalMailBody)
+          .replace(/{{logo}}/g, logo)
+          .replace(/{{resetToken}}/g, resetToken);
+
         // Email options
         const mailOptions = {
-            to: user.Email,
-            from: `${settings.from_name} <${settings.from_mail}>`, // Include business name
-            subject: `${mailtemplate.mail_subject}`,
-            html: finalHtml // Use the HTML template with dynamic variables
+          to: user.Email,
+          from: `${settings.from_name} <${settings.from_mail}>`, // Include business name
+          subject: `${mailtemplate.mail_subject}`,
+          html: finalHtml // Use the HTML template with dynamic variables
         };
-    
+
         // Send email
         await sendEmail(mailOptions);
-    });
+      });
 
 
 
@@ -735,12 +735,12 @@ class Users {
     }
   }
 
-   
 
-  async  sendMessage(req, res) {
+
+  async sendMessage(req, res) {
     try {
       const { to, subject, text } = req.body;
-  
+
       const transporter = nodemailer.createTransport({
         host: 'mail.fincapex.com',
         port: 465,
@@ -752,29 +752,29 @@ class Users {
         logger: true,   // Enable logging
         debug: true,    // Enable debugging output
       });
-  
-      
+
+
       const mailOptions = {
-        from: "shakirpnp@gmail.com", 
-        to ,                        
-        subject                  
-                          
+        from: "shakirpnp@gmail.com",
+        to,
+        subject
+
       };
-  
-      
+
+
       const info = await transporter.sendMail(mailOptions);
-  
-      
+
+
       return res.send({ success: true, message: 'Email sent successfully', info });
-      
+
     } catch (error) {
       console.error('Error sending email:', error);
       return res.status(500).send({ success: false, message: 'Error sending email', error: error.message });
     }
-  }  
+  }
 
-  
-  
+
+
 }
 
 
