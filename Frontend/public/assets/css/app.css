@@ -3940,32 +3940,19 @@ input::placeholder {
 
 
 .alert-count {
-
-	position: absolute;
-
-	top: 2px;
-
-	left: 22px;
-
-	width: 18px;
-
-	height: 18px;
-
-	display: flex;
-
-	align-items: center;
-
-	justify-content: center;
-
-	border-radius: 50%;
-
-	font-size: 12px;
-
-	font-weight: 500;
-
-	color: #fff;
-
-	background: #f62718
+    position: absolute;
+    top: 2px;
+    left: 22px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    background: #0092e4;
 }
 
 
@@ -6444,6 +6431,14 @@ a:visited {
 	padding: 3px 8px;
 	color: #fff;
 }
+.trade-type2 {
+    font-size: 14px;
+    background-color: #e11313 !important;
+    border: 1px solid #e11313;
+    border-radius: 12px;
+    padding: 3px 8px;
+    color: #fff;
+}
 
 .trade-content h3 {
 	margin: 0;
@@ -6745,7 +6740,12 @@ border-right:1px solid #ccc;
     background-color: #a4deff42 !important;
     border-bottom-color: #0092e4 !important;
 }
+.btn-close {
 
+    background: #ffffff var(--bs-btn-close-bg) center / 1em auto no-repeat !important;
+
+    opacity: 1 !important;
+}
 
 
 
