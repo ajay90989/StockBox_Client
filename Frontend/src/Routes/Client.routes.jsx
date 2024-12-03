@@ -23,7 +23,7 @@ import SubscribeService from '../layout/Client_service/SubscribeService';
 import Kyc from '../layout/Client/KYC/Kyc';
 import PastPerformance from '../layout/Client/Past_performance/PastPerformance';
 import PaymentHistory from '../layout/Client/Payment_history/PayementHistory';
-
+import BrokerResponse from '../layout/Client/Broker_response/BrokerResponse';
 
 
 
@@ -89,6 +89,7 @@ function Client() {
                     <Route path="/news" element={<News />} />
                     <Route path="/blogs" element={<Blogs />} />
                     <Route path="/kyc" element={<Kyc />} />
+                    <Route path='/brokerresponse' element={<BrokerResponse />} />
                     <Route path="/pastperformance" element={<PastPerformance />} />
                     <Route path="/paymenthistory" element={<PaymentHistory />} />
                     <Route path="/subscribeservice" element={<SubscribeService />} />

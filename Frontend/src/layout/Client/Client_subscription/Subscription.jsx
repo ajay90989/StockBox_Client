@@ -1,7 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Table from '../../../components/Table';
 
 const Subscription = () => {
+    const columns = [
+        {
+            name: 'Title',
+            selector: row => row.title,
+        },
+        {
+            name: 'Year',
+            selector: row => row.year,
+        },
+    ];
+    
+    const data = [
+          {
+            id: 1,
+            title: 'Beetlejuice',
+            year: '1988',
+        },
+        {
+            id: 2,
+            title: 'Ghostbusters',
+            year: '1984',
+        },
+    ]
+
+
+
+
     return (
         <div>
             <div className="page-content">
@@ -20,214 +48,70 @@ const Subscription = () => {
                     </div>
                 </div>
                 <hr />
-                <div className="card">
-                    <ul className="list-group list-group-flush">
+                
+<div className='row'>
+    <div className='col-md-4'>
+    <div className="card">
+ 
+    <ul className="list-group list-group-flush mt-0">
                         <li className="list-group-item d-flex justify-content-between align-items-center headingfont">
-                            Service Name<span>Expiry Date</span>
+                        Cash<span></span>
                         </li>
                         <li className="list-group-item d-flex justify-content-between align-items-center">
-                            Cash<span className="badge bg-primary rounded-pill badgespan">28 sep 2025</span>
+                        Expiry Date<span className="badge bg-primary rounded-pill badgespan">28 sep 2025</span>
                         </li>
-                        <li className="list-group-item d-flex justify-content-between align-items-center">
-                            Future<span className="badge bg-success rounded-pill badgespan">28 jan 2025</span>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-between align-items-center">
-                            Option<span className="badge bg-danger rounded-pill badgespan">28 Dec 2024</span>
-                        </li>
+                       
                     </ul>
-                </div>
-                <div className="card p-4 bg-light">
-
-                    <div className="accordion accordion-flush" id="accordionFlushExample">
-                        <div className="accordion-item rounded-3 border-0 shadow mb-2">
-                            <h2 className="accordion-header">
-                                <button
-                                    className="accordion-button border-bottom collapsed fw-semibold"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseOne"
-                                    aria-expanded="false"
-                                    aria-controls="flush-collapseOne"
-                                >
-                                    <div className='d-flex justify-content-between align-items-center w-100'>
-                                        <h5 className='m-0'>Vision2030 (Cash)</h5>
-                                        <p className='m-0 pe-2'>Expires on : 28Apr2025</p>
-                                    </div>
-
-                                </button>
-                            </h2>
-                            <div
-                                id="flush-collapseOne"
-                                className="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample"
-                            >
-                                <div className="accordion-body">
-                                    <div className="row justify-content-center align-items-center">
-                                        <div className="col-md-6">
-                                            <div className="card">
-                                                <div className="card-body">
-
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Plan duration</p>
-                                                        <p>6 Months</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Purchased on</p>
-                                                        <p>28 oct 2024</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Purchased Price</p>
-                                                        <p>51999</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Expires on</p>
-                                                        <p>28 apr 2025</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Plan Price</p>
-                                                        <p>51999</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Discount Price</p>
-                                                        <p>0</p>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div className="accordion-item rounded-3 border-0 shadow mb-2">
-                            <h2 className="accordion-header">
-                                <button
-                                    className="accordion-button border-bottom collapsed fw-semibold"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseTwo"
-                                    aria-expanded="false"
-                                    aria-controls="flush-collapseTwo"
-                                >
-                                    <div className='d-flex justify-content-between align-items-center w-100'>
-                                        <h5 className='m-0'> (Cash)</h5>
-                                        <p className='m-0 pe-2'>Expires on : 28Apr2025</p>
-                                    </div>
-                                </button>
-                            </h2>
-                            <div
-                                id="flush-collapseTwo"
-                                className="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample"
-                            >
-                                <div className="accordion-body">
-                                    <div className="row justify-content-center align-items-center">
-                                        <div className="col-md-6">
-                                            <div className="card">
-                                                <div className="card-body">
-
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Plan duration</p>
-                                                        <p>6 Months</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Purchased on</p>
-                                                        <p>28 oct 2024</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Purchased Price</p>
-                                                        <p>51999</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Expires on</p>
-                                                        <p>28 apr 2025</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Plan Price</p>
-                                                        <p>51999</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Discount Price</p>
-                                                        <p>0</p>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="accordion-item rounded-3 border-0 mb-2 shadow">
-                            <h2 className="accordion-header">
-                                <button
-                                    className="accordion-button border-bottom collapsed fw-semibold"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree"
-                                    aria-expanded="false"
-                                    aria-controls="flush-collapseThree"
-                                >
-                                    <div className='d-flex justify-content-between align-items-center w-100'>
-                                        <h5 className='m-0'>  Vision2030 (Cash)</h5>
-                                        <p className='m-0 pe-2'>Expires on : 28Apr2025</p>
-                                    </div>
-                                </button>
-                            </h2>
-                            <div
-                                id="flush-collapseThree"
-                                className="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample"
-                            >
-                                <div className="accordion-body">
-                                    <div className="row justify-content-center align-items-center">
-                                        <div className="col-md-6">
-                                            <div className="card">
-                                                <div className="card-body">
-
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Plan duration</p>
-                                                        <p>6 Months</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Purchased on</p>
-                                                        <p>28 oct 2024</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Purchased Price</p>
-                                                        <p>51999</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Expires on</p>
-                                                        <p>28 apr 2025</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Plan Price</p>
-                                                        <p>51999</p>
-                                                    </div>
-                                                    <div className='d-flex justify-content-between'>
-                                                        <p>Discount Price</p>
-                                                        <p>0</p>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+  
+    </div>
+    <div className='col-md-4'>
+    <div className="card">
+   
+    <ul className="list-group list-group-flush mt-0">
+                        <li className="list-group-item d-flex justify-content-between align-items-center headingfont">
+                       Future<span></span>
+                        </li>
+                        <li className="list-group-item d-flex justify-content-between align-items-center">
+                        Expiry Date <span className="badge bg-primary rounded-pill badgespan">28 sep 2025</span>
+                        </li>
+                       
+                    </ul>
+                    </div>
+                 
+    </div>
+    <div className='col-md-4'>
+    <div className="card">
+   
+    <ul className="list-group list-group-flush mt-0">
+                        <li className="list-group-item d-flex justify-content-between align-items-center headingfont">
+                        Option<span></span>
+                        </li>
+                        <li className="list-group-item d-flex justify-content-between align-items-center">
+                        Expiry Date<span className="badge bg-primary rounded-pill badgespan">28 sep 2025</span>
+                        </li>
+                        
+                    </ul>
+                    </div>
+                   
+    </div>
+</div>
+                   
+                   
                 </div>
+                <div className="card">
+
+<Table
+columns={columns}
+data={data} 
+/>
+
+</div>
 
 
 
             </div>
-        </div>
+      
     );
 }
 

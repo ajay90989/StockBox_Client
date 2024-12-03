@@ -78,7 +78,7 @@ const Sidebar = ({ onToggleClick }) => {
                         <div className="menu-title">Trades</div>
                       </Link>
                     </li>
-                    <li>
+                   
                     <li>
                       <Link to="/client/subscription"
                       
@@ -90,6 +90,28 @@ const Sidebar = ({ onToggleClick }) => {
                         </div>
                       </Link>
                     </li>
+                    <li>
+                      <Link to='/client/demat'
+                      lassName={location.pathname === '/client/demat' ? 'active' : ''}
+                      >
+                        <div className="parent-icon">
+                          <i className="fadeIn animated bx bx-credit-card-front" />
+                        </div>
+                        <div className="menu-title">Demat</div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/client/brokerresponse"
+                      className={location.pathname === '/client/brokerresponse' ? 'active' : ''}
+                      >
+                        <div className="parent-icon">
+                          <i className="fadeIn animated bx bx-message-dots" />
+                        </div>
+                        <div className="menu-title">Broker Response
+                        </div>
+                      </Link>
+                    </li>
+                   <li>
                       <Link to="/client/coupon"
                       className={location.pathname === '/client/coupon' ? 'active' : ''}
                       >

@@ -37,11 +37,11 @@ const Header = () => {
 
                   <li>
 
-                    <div className="form-check form-switch form-check-dark" style={{ margin: "inherit", fontSize: "21px" }}>
-
+                    <div className="form-check form-switch form-check-dark d-flex align-items-center ps-0" style={{ margin: "inherit", fontSize: "21px" }}>
+                      <p className='mb-0 fs-6'>Login with API</p>
                       <input
 
-                        className="form-check-input"
+                        className="form-check-input ms-2"
                         type="checkbox"
                         role="switch"
                         id="flexSwitchCheckDark"

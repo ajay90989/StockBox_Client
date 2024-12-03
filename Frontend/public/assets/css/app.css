@@ -6741,7 +6741,10 @@ border-right:1px solid #ccc;
     border: solid 1px #bcc2ce;
     outline: none;
 }
-
+.rdt_TableHeadRow {
+    background-color: #a4deff42 !important;
+    border-bottom-color: #0092e4 !important;
+}
 
 
 
