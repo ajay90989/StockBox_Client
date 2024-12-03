@@ -1,14 +1,9 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Sidebar = ({ onToggleClick }) => {
+  const location = useLocation(); // Get the current URL path
 
-  const [activeLink, setActiveLink] = useState(''); // Active link state
-
-  // Link click handler
-  const handleLinkClick = (link) => {
-    setActiveLink(link); // Active state ko sirf link ke click se update karo
-  };
   return (
     <div>
       <div data-simplebar="init">
@@ -18,10 +13,7 @@ const Sidebar = ({ onToggleClick }) => {
           </div>
           <div className="simplebar-mask">
             <div className="simplebar-offset" style={{ right: 0, bottom: 0 }}>
-              <div
-                className="simplebar-content-wrapper"
-
-              >
+              <div className="simplebar-content-wrapper">
                 <div className="simplebar-content mm-active" style={{ padding: 0 }}>
                   <div className="sidebar-header">
                     <div>
@@ -38,24 +30,24 @@ const Sidebar = ({ onToggleClick }) => {
                       <i className="bx bx-arrow-back" />
                     </div>
                   </div>
-                  {/*navigation*/}
+                  {/* Navigation */}
                   <ul className="metismenu mm-show" id="menu">
                     <li>
                       <Link
                         to="/client/dashboard"
-                        onClick={() => handleLinkClick('/client/dashboard')}
-                        className={activeLink === '/client/dashboard' ? 'active' : ''}
-
+                        className={location.pathname === '/client/dashboard' ? 'active' : ''}
                       >
                         <div className="parent-icon">
                           <i className="bx bx-home-alt" />
                         </div>
                         <div className="menu-title">Dashboard</div>
                       </Link>
-
                     </li>
                     <li>
-                      <Link to="/client/service">
+                      <Link
+                        to="/client/service"
+                        className={location.pathname === '/client/service' ? 'active' : ''}
+                      >
                         <div className="parent-icon">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -71,34 +63,26 @@ const Sidebar = ({ onToggleClick }) => {
                           >
                             <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
                           </svg>
-
                         </div>
-                        <div className="menu-title">Services
-                        </div>
+                        <div className="menu-title">Services</div>
                       </Link>
                     </li>
-
-
                     <li>
-                      <Link to={'/client/trade'}>
+                      <Link
+                        to="/client/trade"
+                        className={location.pathname === '/client/trade' ? 'active' : ''}
+                      >
                         <div className="parent-icon">
                           <i className="fadeIn animated bx bx-bar-chart-alt" />
                         </div>
                         <div className="menu-title">Trades</div>
                       </Link>
                     </li>
-
                     <li>
-                      <Link to={'/client/demat'}>
-                        <div className="parent-icon">
-                          <i className="fadeIn animated bx bx-credit-card-front" />
-                        </div>
-                        <div className="menu-title">Demat</div>
-                      </Link>
-                    </li>
-
                     <li>
-                      <Link to="/client/subscription">
+                      <Link to="/client/subscription"
+                      
+                      className={location.pathname === '/client/subscription' ? 'active' : ''}>
                         <div className="parent-icon">
                           <i className="fadeIn animated bx bx-label" />
                         </div>
@@ -106,38 +90,19 @@ const Sidebar = ({ onToggleClick }) => {
                         </div>
                       </Link>
                     </li>
-                    <li>
-                      <Link to="/client/signal">
+                      <Link to="/client/coupon"
+                      className={location.pathname === '/client/coupon' ? 'active' : ''}
+                      >
                         <div className="parent-icon">
-                          <i className="fadeIn animated bx bx-wifi" />
-                        </div>
-                        <div className="menu-title">Signal
-                        </div>
-                      </Link>
-                    </li>
-
-                    <li>
-                      <Link to="/client/browse">
-                        <div className="parent-icon">
-                          <i className="fadeIn animated bx bx-aperture" />
-                        </div>
-                        <div className="menu-title">Browse
-                        </div>
-                      </Link>
-                    </li>
-
-
-                    <li>
-                      <Link to="/client/coupon">
-                        <div className="parent-icon">
-                          <i className="lni lni-offer" />
+                        <i className='bx bxs-coupon'></i>
                         </div>
                         <div className="menu-title">Coupons
                         </div>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/client/refer">
+                      <Link to="/client/refer"
+                      className={location.pathname === '/client/refer' ? 'active' : ''}>
                         <div className="parent-icon">
                           <i className="fadeIn animated bx bx-purchase-tag" />
                         </div>
@@ -147,7 +112,8 @@ const Sidebar = ({ onToggleClick }) => {
                     </li>
 
                     <li>
-                      <Link to="/client/faq">
+                      <Link to="/client/faq"
+                      className={location.pathname === '/client/faq' ? 'active' : ''}>
                         <div className="parent-icon">
                           <i className="bx bx-help-circle" />
                         </div>
@@ -156,16 +122,20 @@ const Sidebar = ({ onToggleClick }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/client/privacy">
+                      <Link to="/client/privacy"
+                      className={location.pathname === '/client/privacy' ? 'active' : ''}>
                         <div className="parent-icon">
-                          <i className="bx bxs-chevron-right" />
+                        <i className='bx bx-file-blank'></i>
+                          
                         </div>
                         <div className="menu-title">Privacy Policy
                         </div>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/client/terms">
+                      <Link to="/client/terms"
+                      className={location.pathname === '/client/terms' ? 'active' : ''}
+                      >
                         <div className="parent-icon">
                           <i className="fadeIn animated bx bx-file" />
                         </div>
@@ -174,7 +144,9 @@ const Sidebar = ({ onToggleClick }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/staff/faq">
+                      <Link to="/staff/faq"
+                      className={location.pathname === '/staff/faq' ? 'active' : ''}
+                      >
                         <div className="parent-icon">
                           <i className="bx bx-help-circle" />
                         </div>
@@ -183,7 +155,9 @@ const Sidebar = ({ onToggleClick }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/staff/faq">
+                      <Link to="/client/faq"
+                      className={location.pathname === '/staff/faq' ? 'active' : ''}
+                      >
                         <div className="parent-icon">
                           <i className="fadeIn animated bx bx-message-dots" />
                         </div>
@@ -191,44 +165,78 @@ const Sidebar = ({ onToggleClick }) => {
                         </div>
                       </Link>
                     </li>
-
+                    <li>
+                      <Link to="/client/pastperformance"
+                      className={location.pathname === '/staff/faq' ? 'active' : ''}
+                      >
+                        <div className="parent-icon">
+                         
+                        <i className='bx bxs-timer'></i>
+                        </div>
+                        <div className="menu-title">Past performance
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/client/paymenthistory"
+                      className={location.pathname === '/staff/faq' ? 'active' : ''}
+                      >
+                        <div className="parent-icon">
+                       
+                        <i className='fadeIn bx bx-history'></i>
+                        </div>
+                        
+                        <div className="menu-title">Payment History
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/client/kyc"
+                      className={location.pathname === '/staff/faq' ? 'active' : ''}
+                      >
+                        <div className="parent-icon">
+                        <i className='fadeIn animated bx bxs-detail'></i>
+                         
+                        </div>
+                        <div className="menu-title">KYC
+                        </div>
+                      </Link>
+                    </li>
                   </ul>
-
                 </div>
               </div>
             </div>
           </div>
           <div
             className="simplebar-placeholder"
-            style={{ width: "auto", height: 1393 }}
+            style={{ width: 'auto', height: 1393 }}
           />
         </div>
         <div
           className="simplebar-track simplebar-horizontal"
-          style={{ visibility: "hidden" }}
+          style={{ visibility: 'hidden' }}
         >
           <div
             className="simplebar-scrollbar"
-            style={{ width: 0, display: "none" }}
+            style={{ width: 0, display: 'none' }}
           />
         </div>
         <div
           className="simplebar-track simplebar-vertical"
-          style={{ visibility: "visible" }}
+          style={{ visibility: 'visible' }}
         >
           <div
             className="simplebar-scrollbar"
             style={{
               height: 294,
-              transform: "translate3d(0px, 347px, 0px)",
-              display: "block"
+              transform: 'translate3d(0px, 347px, 0px)',
+              display: 'block',
             }}
           />
         </div>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

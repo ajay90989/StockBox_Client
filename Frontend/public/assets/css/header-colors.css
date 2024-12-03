@@ -132,7 +132,11 @@ html.color-sidebar .sidebar-wrapper .metismenu .mm-active>a, html.color-sidebar 
     text-decoration: none;
     background: rgb(255 255 255 / 15%);
 }
-
+.sidebar-wrapper .metismenu a.active, html.color-sidebar .sidebar-wrapper .metismenu a.active {
+    color: #fff;
+    text-decoration: none;
+    background: rgb(255 255 255 / 15%);
+}
 html.color-sidebar .sidebar-wrapper .metismenu a {
     color: rgb(255 255 255 / 85%);
 }
