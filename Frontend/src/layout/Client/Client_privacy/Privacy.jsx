@@ -1,6 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Table from '../../../components/Table';
+import { GetPrivacyPolicy } from '../../../Services/User';
 
 const Privacy = () => {
+    const [privacyPolicy, setPrivacyPolicy] = useState('');
+
+    const fetchPrivacyPolicy = async () => {
+        try {
+            const res = await GetPrivacyPolicy();
+            if (res.status) {
+                setPrivacyPolicy(res.data.description);
+            }
+            console.log('Response:', res.data); // Inspect the response
+        } catch (error) {
+            console.error('Error fetching privacy policy:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchPrivacyPolicy();
+    }, []);
+
     return (
         <div>
             <div>
@@ -24,16 +44,13 @@ const Privacy = () => {
                         <div className="card-body">
                             <h5 className="card-title">Privacy & Policy</h5>
                             <hr />
-                            <div>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio, ab aspernatur, similique praesentium provident, beatae ducimus corporis asperiores eveniet dignissimos. Quia aspernatur provident nemo eius illum asperiores labore quaerat assumenda soluta distinctio sequi officiis deserunt nam impedit iure repudiandae sapiente nesciunt, dolore hic delectus mollitia accusantium quo. Magnam quis odit non vel laborum dolorem et ipsa, fuga voluptatum assumenda itaque aliquid aspernatur quae sequi aliquam atque possimus temporibus mollitia nobis provident tempore totam culpa. Voluptas, voluptates? Unde, voluptate mollitia.
-                            </div>
+                            <div dangerouslySetInnerHTML={{ __html: privacyPolicy }} />
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default Privacy;
