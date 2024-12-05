@@ -67,3 +67,19 @@ export async function getTermsCondition(token)
         }
     }
 
+    export async function getMySubsription(token,id)
+{
+    try{
+        const res= await axios.get(`${Config.base_url}api/list/myplan/${id}`,
+            {
+                headers: {
+                    "Authorization":`Bearer ${token}`
+                }
+            });
+            
+            return res?.data;
+        } catch (err) {
+            console.error('Error fetching plan data:', err);
+            throw err;
+        }
+    }
