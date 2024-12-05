@@ -1595,13 +1595,14 @@ const Trade = () => {
                             >
                               View Ananlysis
                             </button>
-                            <button
+                            <Link
+                            to={'/brokerresponse'}
                               className="btn btn-view-detail w-100"
                               data-bs-toggle="modal"
                               data-bs-target="#exampleModal1"
                             >
                               Broker Response
-                            </button>
+                            </Link>
                           </div>
                         </div>
                       </div>
