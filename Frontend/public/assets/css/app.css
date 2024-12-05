@@ -6747,5 +6747,26 @@ border-right:1px solid #ccc;
     opacity: 1 !important;
 }
 
-
-
+.modal-content {   
+    border-radius: 3px;  
+}
+.modal-header {  
+    border-radius: 3px;
+}
+span.c-offer {
+    color: #0092e4;
+}
+p.use-cod {
+    font-size: 16px;
+}
+p.use-cod span {
+    color: #F44336;
+    margin-left: 5px;
+	font-size: 17px;
+}
+p.use-cod a {
+    color: #2196F3;
+}
+.mrl10{
+margin-right: 10px;	
+}
