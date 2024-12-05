@@ -1,9 +1,10 @@
 import axios from 'axios';
 import * as Config from "../Utils/config";
 
-export async function GetPastPerformance(token) {
+export async function GetPastPerformance(data) {
+  const { token, userId } = data;
     try {
-        const res = await axios.get(`http://192.168.0.11:5001/api/list/past-performance/66d2c3bebf7e6dc53ed07626`, {
+        const res = await axios.get(`${Config.base_url}api/list/past-performance/${userId}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             },
@@ -19,7 +20,7 @@ export async function GetPastPerformance(token) {
 
 export async function GetPrivacyPolicy(token) {
     try {
-        const res = await axios.get(`http://192.168.0.11:5001/api/list/content/66dbec0a9f7a0365f1f4527d`, {
+        const res = await axios.get(`${Config.base_url}api/list/content/66dbef118b3cf3e8cf23a988`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             },
@@ -31,3 +32,20 @@ export async function GetPrivacyPolicy(token) {
         throw err;
     }
 }
+
+export async function getTermsCondition(token)
+{
+    try{
+        const res= await axios.get(`${Config.base_url}api/list/content/66dbec0a9f7a0365f1f4527d`,
+            {
+                headers: {
+                    "Authorization":`Bearer ${token}`
+                }
+            });
+            
+            return res?.data;
+        } catch (err) {
+            console.error('Error fetching Terms Condition data:', err);
+            throw err;
+        }
+    }
