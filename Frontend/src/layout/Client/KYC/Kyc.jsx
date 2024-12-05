@@ -1,35 +1,75 @@
-import React from 'react'
 
-const Kyc = () => {
-  return (
-    <div> <div className="page-content">
-    <div className="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+import { useFormik } from 'formik';
+
+const KycForm = () => {
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            email: '',
+            address: ''
+        },
+        onSubmit: values => {
+            
+        },
+    });
+
+    return (
+
+
+        <div className="page-content">
+      <div className="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div className="breadcrumb-title pe-3">KYC</div>
         <div className="ps-3">
-            <nav aria-label="breadcrumb">
-                <ol className="breadcrumb mb-0 p-0">
-                    <li className="breadcrumb-item">
-                        <a href="/admin/dashboard">
-                            <i className="bx bx-home-alt" />
-                        </a>
-                    </li>
-                </ol>
-            </nav>
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb mb-0 p-0">
+              <li className="breadcrumb-item">
+                <a href="/admin/dashboard">
+                  <i className="bx bx-home-alt" />
+                </a>
+              </li>
+            </ol>
+          </nav>
         </div>
-    </div>
-    <hr />
-    <div className="card">
+      </div>
+      <hr />
+      <div className="card">
         <div className="card-body">
-            <h5 className="card-title">KYC</h5>
-            <hr />
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio, ab aspernatur, similique praesentium provident, beatae ducimus corporis asperiores eveniet dignissimos. Quia aspernatur provident nemo eius illum asperiores labore quaerat assumenda soluta distinctio sequi officiis deserunt nam impedit iure repudiandae sapiente nesciunt, dolore hic delectus mollitia accusantium quo. Magnam quis odit non vel laborum dolorem et ipsa, fuga voluptatum assumenda itaque aliquid aspernatur quae sequi aliquam atque possimus temporibus mollitia nobis provident tempore totam culpa. Voluptas, voluptates? Unde, voluptate mollitia.
-            </div>
+      <form onSubmit={formik.handleSubmit}>
+            <label htmlFor="name">Name</label>
+            <input
+                id="name"
+                name="name"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.name}
+            />
+            <br />
+            <label htmlFor="email">Email</label>
+            <input
+                id="email"
+                name="email"
+                type="email"
+                onChange={formik.handleChange}
+                value={formik.values.email}
+            />
+            <br />
+            <label htmlFor="address">Address</label>
+            <input
+                id="address"
+                name="address"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.address}
+            />
+            <br />
+            <button type="submit">Submit</button>
+        
+        </form>
         </div>
+      </div>
     </div>
+    
+    );
+};
 
-</div></div>
-  )
-}
-
-export default Kyc
+export default KycForm;

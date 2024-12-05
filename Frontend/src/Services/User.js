@@ -49,3 +49,21 @@ export async function getTermsCondition(token)
             throw err;
         }
     }
+
+    export async function getFaq(token)
+{
+    try{
+        const res= await axios.get(`${Config.base_url}api/list/faq`,
+            {
+                headers: {
+                    "Authorization":`Bearer ${token}`
+                }
+            });
+            
+            return res?.data;
+        } catch (err) {
+            console.error('Error fetching Faq data:', err);
+            throw err;
+        }
+    }
+
