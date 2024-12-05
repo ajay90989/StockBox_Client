@@ -19,45 +19,67 @@ const Coupon = () => {
                     </div>
                 </div>
                 <hr />
-                <div className="row">
-                    <div className="col-md-6">
-                        <div className="coupon">
-                            <div className="left">
-                                <div>Limited Time Only</div>
-                            </div>
-                            <div className="center">
-                                <div>
-                                    <h2>10% OFF</h2>
-                                    <h3>Coupon</h3>
-                                    <small>test offer minimum purchae value ₹10</small>
-                                </div>
-                            </div>
-                            <div className="right">
-                                <div>test123</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-6 mb-3">
-                        <div className="coupon">
-                            <div className="left">
-                                <div>Limited Time Only</div>
-                            </div>
-                            <div className="center">
-                                <div>
-                                    <h2>50% OFF</h2>
-                                    <h3>Coupon</h3>
-                                    <small>test offer minimum purchae value ₹600</small>
-                                </div>
-                            </div>
-                            <div className="right">
+                
+                <div className="card radius-5">
+  <div className="card-body">
+    <ul className="list-unstyled">
+      <li className="d-flex align-items-center border-bottom pb-2">
+        <img
+          src="assets/images/avatars/avatar-8.png"
+          className="rounded-circle p-1 border"
+          width={70}
+          height={70}
+          alt="..."
+        />
+        <div className="flex-grow-1 ms-3">
+          <h5 className="mt-0 mb-1">Unlock Unbeatable Exclusive redDeals!<span className="c-offer"> 20% OFF</span></h5>
+          <p className="use-cod">Use code
+    <span>SUPERHIT</span> | Valid till 31 Dec |{" "}
+    <a href="#">T&amp;C</a>
+  </p>
+        </div>
+        <button type="button" className="btn btn-primary px-5"> Apply Now</button>
 
-                                <div>12HGHG</div>
-                            </div>
-                        </div>
-                    </div>
+      </li>
+      <li className="d-flex align-items-center border-bottom pb-2">
+        <img
+          src="assets/images/avatars/avatar-8.png"
+          className="rounded-circle p-1 border"
+          width={70}
+          height={70}
+          alt="..."
+        />
+        <div className="flex-grow-1 ms-3">
+          <h5 className="mt-0 mb-1">Unlock Unbeatable Exclusive redDeals!<span className="c-offer"> 20% OFF</span></h5>
+          <p className="use-cod">Use code
+    <span>SUPERHIT</span> | Valid till 31 Dec |{" "}
+    <a href="#">T&amp;C</a>
+  </p>
+        </div>
+        <button type="button" className="btn btn-primary px-5"> Apply Now</button>
 
+      </li>
+      <li className="d-flex align-items-center border-bottom pb-2">
+        <img
+          src="assets/images/avatars/avatar-8.png"
+          className="rounded-circle p-1 border"
+          width={70}
+          height={70}
+          alt="..."
+        />
+        <div className="flex-grow-1 ms-3">
+          <h5 className="mt-0 mb-1">Unlock Unbeatable Exclusive redDeals!<span className="c-offer"> 20% OFF</span></h5>
+          <p className="use-cod">Use code
+    <span>SUPERHIT</span> | Valid till 31 Dec |{" "}
+    <a href="#">T&amp;C</a>
+  </p>
+        </div>
+        <button type="button" className="btn btn-primary px-5"> Apply Now</button>
 
-                </div>
+      </li>
+    </ul>
+  </div>
+</div>
 
             </div>
 

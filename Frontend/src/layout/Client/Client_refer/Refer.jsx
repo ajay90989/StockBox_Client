@@ -1,6 +1,16 @@
-import React from 'react';
+import {useState, React } from 'react';
+import ReusableModal from '../../../components/ReusableModal';
+import { Link } from 'react-router-dom';
 
 const Refer = () => {
+
+    const [showModal, setShowModal] = useState(false);
+
+  const  WithdrawalHandleShowModal = () => setShowModal(true);
+  
+  const handleCloseModal = () => setShowModal(false);
+
+
     return (
         <div>
             <div className="page-content">
@@ -20,7 +30,7 @@ const Refer = () => {
                 </div>
                 <hr />
                 <div className="row align-items-center ">
-                    <div className="col-md-6">
+                    <div className="col-md-8">
                         <div>
                             <h3 style={{ color:"#0092E4"}}>Refer and Earn ₹500</h3>
 
@@ -31,7 +41,7 @@ const Refer = () => {
                         </div>
                         <hr />
                         <div>
-                            <ul className="nav nav-pills mb-3" role="tablist" style={{ borderRadius: "30px", border: "1px solid #000" }}>
+                            <ul className="nav nav-pills mb-3" role="tablist">
                                 <li className="nav-item mt-2 ms-2" role="presentation">
                                     <a
                                         className="nav-link"
@@ -129,8 +139,38 @@ const Refer = () => {
 
 
                     </div>
-                    <div className="col-md-6 d-flex justify-content-center align-items-center">
-                        <img src="https://www.shoppre.com/img/refer-and-earn/refer-and-earn-shoppre-shipping.png" alt="" />
+                    <div className="col-md-4 d-flex justify-content-center align-items-center">
+                    <div className="card">
+  
+  <div className="card-body">
+    <h5 className="card-title">Credit available </h5>
+    <p className="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+  </div>
+  <ul className="list-group list-group-flush list shadow-none">
+    <li className="list-group-item d-flex justify-content-between align-items-center border-top">
+      Available Balance <span className="badge bg-dark rounded-pill">₹14</span>
+    </li>
+    <li className="list-group-item d-flex justify-content-between align-items-center">
+      Total Earning{" "}
+      <span className="badge bg-success rounded-pill">₹2</span>
+    </li>
+    <li className="list-group-item d-flex justify-content-between align-items-center border-bottom">
+      Total Withdrawal Amount <span className="badge bg-danger rounded-pill">₹1</span>
+    </li>
+  </ul>
+  <div className="card-body">
+    {" "}
+    
+    <button type="button" className="btn btn-primary px-2 mrl10" onClick={WithdrawalHandleShowModal}> Withdrawal</button>
+    <Link to="/client/viewwithdrawal" className="card-link"> <ins>View History </ins></Link>
+
+    
+  </div>
+</div>
+
                     </div>
 
                 </div>
@@ -139,7 +179,54 @@ const Refer = () => {
                 </div>
 
             </div>
+
+
+
+            <ReusableModal
+        show={showModal}
+        onClose={handleCloseModal}
+        title={<>Withdrawal</>}
+        body=
+        {<div>
+<h6>Available Balance:<span> ₹10000</span></h6>
+         <form className="row g-3">
+  <div className="col-md-12">
+    <label htmlFor="input1" className="form-label">
+    
+    </label>
+    <input
+      type="text"
+      className="form-control"
+      id="input1"
+      placeholder="Enter Withdrawal Amount"
+    />
+  </div>
+  
+
+</form>
+<p> Min.  Withdrawal Amount: ₹300</p>
+          
+        </div>}
+        footer={
+          <>
+            <button className='btn btn-primary rounded-1' onClick={handleCloseModal}>
+            Withdrawal Now
+            </button>
+           
+          </>
+        }
+      />
+
+
+
+
+
+
+
+
+
         </div>
+        
     );
 }
 
