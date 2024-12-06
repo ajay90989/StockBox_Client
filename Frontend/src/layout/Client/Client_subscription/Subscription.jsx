@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Table from "../../../components/Table";
-import { getMySubsription } from "../../../Services/User";
+import { getMySubscription } from "../../../Services/User";
 
 const Subscription = () => {
     // States
@@ -12,9 +12,15 @@ const Subscription = () => {
     console.log("ID:", id, "Token:", token);
 
     // Function to fetch subscription data
-    const getMySubscription = async () => {
+    const fetchMySubscription = async () => {
+        // Check if id and token are available
+        if (!id || !token) {
+            console.error("Missing id or token in localStorage");
+            return;
+        }
+
         try {
-            const res = await getMySubsription({ id, token }); // Call the API
+            const res = await getMySubscription({ id, token }); // Call the API
             console.log("Response:", res);
 
             if (res?.status === true) {
@@ -30,7 +36,7 @@ const Subscription = () => {
     };
 
     useEffect(() => {
-        getMySubscription(); // Fetch data when component mounts
+        fetchMySubscription(); // Fetch data when component mounts
     }, []);
 
     // Define table columns
