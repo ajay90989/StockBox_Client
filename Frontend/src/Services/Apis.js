@@ -6,7 +6,7 @@ import * as Config from "../Utils/config";
 
 export const login_Api = async (data) => {
 
-    const response = await axios.post(`${Config.base_url}user/login`, {
+    const response = await axios.post(`${Config.base_url}api/client/login`, {
         UserName: data.UserName,
         password: data.password,
     });
